@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -16,6 +17,8 @@ namespace BankModel
         public int ThisMoment { get; set; }
         [DataMember]
         public int NextMonth { get; set; }
-
+        [DataMember]
+        [Required]
+        public int ClientPassportData { get; set; }
     }
 }
