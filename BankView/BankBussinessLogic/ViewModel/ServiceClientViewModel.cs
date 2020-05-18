@@ -13,6 +13,5 @@ namespace BankBussinessLogic.ViewModel
         public string TypeService { get; set; }
         [DisplayName("ФИО клиента")]
         public string ClientFIO { get; set; }
-        public List<ServiceClientViewModel> ServiceClient;
     }
 }

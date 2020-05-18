@@ -8,6 +8,5 @@ namespace BankBussinessLogic.BindingModel
     {
         public int ServiceId { get; set;}
         public int ClientPassportData { get; set; }
-        public List<ServiceClientBindingModel> ServiceClient;
     }
 }
