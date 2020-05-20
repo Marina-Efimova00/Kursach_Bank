@@ -6,7 +6,7 @@ namespace BankBussinessLogic.BindingModel
 {
     public class WorkerBindingModel
     {
-        public int Id { get; set;}
-        public int WorkerFIO { get; set; }
+        public int? Id { get; set;}
+        public string WorkerFIO { get; set; }
     }
 }

@@ -8,10 +8,8 @@ namespace BankBussinessLogic.Interfaces
 {
     public interface IWorkerLogic
     {
-        List<WorkerViewModel> GetList();
-        WorkerViewModel GetElement(int id);
-        void AddElement(WorkerBindingModel model);
-        void UpdElement(WorkerBindingModel model);
-        void DelElement(int id);
+        List<WorkerViewModel> Read(WorkerBindingModel model);
+        void CreateOrUpdate(WorkerBindingModel model);
+        void Delete(WorkerBindingModel model);
     }
 }

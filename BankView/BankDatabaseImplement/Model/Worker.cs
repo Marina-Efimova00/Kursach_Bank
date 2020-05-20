@@ -2,14 +2,18 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace BankDatabaseImplement.Model
 {
+    [DataContract]
     public class Worker
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         [Required]
-        public int WorkerFIO { get; set; }
+        public string WorkerFIO { get; set; }
     }
 }

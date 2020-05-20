@@ -8,10 +8,8 @@ namespace BankBussinessLogic.Interfaces
 {
     public interface IServiceLogic
     {
-        List<ServiceViewModel> GetList();
-        ServiceViewModel GetElement(int id);
-        void AddElement(ServiceBindingModel model);
-        void UpdElement(ServiceBindingModel model);
-        void DelElement(int id);
+        List<ServiceViewModel> Read(ServiceBindingModel model);
+        void CreateOrUpdate(ServiceBindingModel model);
+        void Delete(ServiceBindingModel model);
     }
 }
