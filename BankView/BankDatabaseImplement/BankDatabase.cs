@@ -19,6 +19,6 @@ namespace BankDatabaseImplement
         public virtual DbSet<Worker> Workers { set; get; }
         public virtual DbSet<Client> Clients { set; get; }
         public virtual DbSet<Service> Services { set; get; }
-        public virtual DbSet<ServiceClient> serviceClients { set; get; }
+        public virtual DbSet<ServiceClient> ServiceClients { set; get; }
     }
 }

@@ -9,6 +9,5 @@ namespace BankBussinessLogic.BindingModel
         public int Id { get; set; }
         public string TypeService { get; set; }
         public int WorkerId { get; set; }
-        public List<ServiceBindingModel> Service;
     }
 }

@@ -7,6 +7,6 @@ namespace BankBussinessLogic.BindingModel
     public class ServiceClientBindingModel
     {
         public int ServiceId { get; set;}
-        public int ClientPassportData { get; set; }
+        public int ClientId { get; set; }
     }
 }

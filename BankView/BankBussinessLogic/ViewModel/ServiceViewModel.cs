@@ -11,6 +11,6 @@ namespace BankBussinessLogic.ViewModel
         public int WorkerId { get; set; }
         [DisplayName("Вид услуги")]
         public string TypeService { get; set; }
-        public List<ServiceViewModel> Service;
+
     }
 }
