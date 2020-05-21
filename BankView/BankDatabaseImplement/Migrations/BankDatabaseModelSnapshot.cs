@@ -68,6 +68,8 @@ namespace BankDatabaseImplement.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("WorkerId");
+
                     b.ToTable("Services");
                 });
 
@@ -100,12 +102,22 @@ namespace BankDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("WorkerFIO")
-                        .HasColumnType("int");
+                    b.Property<string>("WorkerFIO")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Workers");
+                });
+
+            modelBuilder.Entity("BankDatabaseImplement.Model.Service", b =>
+                {
+                    b.HasOne("BankDatabaseImplement.Model.Worker", "Worker")
+                        .WithMany("Serveces")
+                        .HasForeignKey("WorkerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("BankDatabaseImplement.Model.ServiceClient", b =>

@@ -17,6 +17,7 @@ namespace BankDatabaseImplement.Model
         public string TypeService { get; set; }
         [DataMember]
         public int WorkerId { get; set; }
+        public virtual Worker Worker { get; set; }
         public virtual List<ServiceClient> ServiseClients { get; set; }
     }
 }
