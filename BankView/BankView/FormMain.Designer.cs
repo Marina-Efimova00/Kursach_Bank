@@ -60,14 +60,12 @@
             this.клиентыToolStripMenuItem.Name = "клиентыToolStripMenuItem";
             this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
-            this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
             // 
             // сотрудникиToolStripMenuItem
             // 
             this.сотрудникиToolStripMenuItem.Name = "сотрудникиToolStripMenuItem";
             this.сотрудникиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.сотрудникиToolStripMenuItem.Text = "Сотрудники";
-            this.сотрудникиToolStripMenuItem.Click += new System.EventHandler(this.сотрудникиToolStripMenuItem_Click);
             // 
             // FormMain
             // 

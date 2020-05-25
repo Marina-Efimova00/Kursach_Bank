@@ -15,6 +15,7 @@ namespace BankDatabaseImplement.Model
         [DataMember]
         [Required]
         public string WorkerFIO { get; set; }
+        public int Salary { get; set; }
         public virtual List<Service> Serveces { get; set; }
     }
 }

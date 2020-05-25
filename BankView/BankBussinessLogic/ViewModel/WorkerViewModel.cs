@@ -10,5 +10,7 @@ namespace BankBussinessLogic.ViewModel
         public int Id { get; set; }
         [DisplayName("ФИО")]
         public string WorkerFIO { get; set; }
+        [DisplayName("Зарплата")]
+        public int Salary { get; set; }
     }
 }

@@ -19,16 +19,5 @@ namespace BankView
         {
             InitializeComponent();
         }
-
-        private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void сотрудникиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            var form = Container.Resolve<FormWorkers>();
-            form.ShowDialog();
-        }
     }
 }

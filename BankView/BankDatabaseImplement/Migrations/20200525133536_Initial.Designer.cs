@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankDatabaseImplement.Migrations
 {
     [DbContext(typeof(BankDatabase))]
-    [Migration("20200521221208_Initial")]
+    [Migration("20200525133536_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -103,6 +103,9 @@ namespace BankDatabaseImplement.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Salary")
+                        .HasColumnType("int");
 
                     b.Property<string>("WorkerFIO")
                         .IsRequired()

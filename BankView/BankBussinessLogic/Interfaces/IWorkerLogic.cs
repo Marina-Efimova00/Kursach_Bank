@@ -9,7 +9,5 @@ namespace BankBussinessLogic.Interfaces
     public interface IWorkerLogic
     {
         List<WorkerViewModel> Read(WorkerBindingModel model);
-        void CreateOrUpdate(WorkerBindingModel model);
-        void Delete(WorkerBindingModel model);
     }
 }

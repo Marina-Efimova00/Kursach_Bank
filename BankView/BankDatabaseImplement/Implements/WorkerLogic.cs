@@ -4,57 +4,66 @@ using BankBussinessLogic.ViewModel;
 using BankDatabaseImplement.Model;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Xml.Linq;
 
 namespace BankDatabaseImplement.Implements
 {
     public class WorkerLogic : IWorkerLogic
     {
-        public void CreateOrUpdate(WorkerBindingModel model)
+        private readonly string WorkerFileName = "C://Users//marin.LAPTOP-0TUFHPTU//source//repos//Kursach_Bank//BankView//data//Worker.xml";
+        public List<Worker> Workers { get; set; }
+        public WorkerLogic()
         {
-            using (var context = new BankDatabase())
-            {
-                Worker element = context.Workers.FirstOrDefault(rec => rec.Id != model.Id);
-                if (element != null)
-                {
-                    throw new Exception("Уже есть такой сотрудник");
-                }
-                if (model.Id.HasValue)
-                {
-                    element = context.Workers.FirstOrDefault(rec => rec.Id == model.Id);
-                    if (element == null)
-                    {
-                        throw new Exception("Элемент не найден");
-                    }
-                }
-                else
-                {
-                    element = new Worker();
-                    context.Workers.Add(element);
-                }
-                element.WorkerFIO = model.WorkerFIO;
-                context.SaveChanges(); 
-            }
+            Workers = LoadWorkers();
         }
-        public void Delete(WorkerBindingModel model)
+        private List<Worker> LoadWorkers()
         {
+            var list = new List<Worker>();
+            if (File.Exists(WorkerFileName))
+            {
+                XDocument xDocument = XDocument.Load(WorkerFileName);
+                var xElements = xDocument.Root.Elements("Worker").ToList();
+                foreach (var elem in xElements)
+                {
+                    list.Add(new Worker
+                    {
+                        Id = Convert.ToInt32(elem.Attribute("Id").Value),
+                        WorkerFIO = elem.Element("WorkerFIO").Value,
+                        Salary = Convert.ToInt32(elem.Element("Salary").Value),
+                    });
+                }
+            }
+            return list;
+        }
+        public void SaveToDatabase()
+        {
+            var workers = LoadWorkers();
             using (var context = new BankDatabase())
             {
-                Worker element = context.Workers.FirstOrDefault(rec => rec.Id == model.Id);
-                if (element != null)
+                foreach (var worker in workers)
                 {
-                    context.Workers.Remove(element);
+                    Worker element = context.Workers.FirstOrDefault(rec => rec.Id == worker.Id);
+                    if (element != null)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        element = new Worker();
+                        context.Workers.Add(element);
+                    }
+                    element.WorkerFIO = worker.WorkerFIO;
+                    element.Salary = worker.Salary;
                     context.SaveChanges();
-                }
-                else
-                {
-                    throw new Exception("Элемент не найден");
                 }
             }
         }
         public List<WorkerViewModel> Read(WorkerBindingModel model)
         {
+            SaveToDatabase();
             using (var context = new BankDatabase())
             {
                 return context.Workers
@@ -62,7 +71,8 @@ namespace BankDatabaseImplement.Implements
                 .Select(rec => new WorkerViewModel
                 {
                     Id = rec.Id,
-                    WorkerFIO = rec.WorkerFIO
+                    WorkerFIO = rec.WorkerFIO,
+                    Salary = rec.Salary
                 })
                 .ToList();
             }
