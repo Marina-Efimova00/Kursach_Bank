@@ -13,6 +13,7 @@ namespace BankDatabaseImplement.Model
         [DataMember]
         public int Id { get; set; }
         [DataMember]
+        [Required]
         public int PassportData { get; set; }
         [DataMember]
         [Required]
