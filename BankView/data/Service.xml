@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Services>
+  <Service Id="1">
+    <TypeService>Кредит</TypeService>
+  </Service>
+  <Service Id="2">
+    <TypeService>Рассрочка</TypeService>
+  </Service>
+</Services>

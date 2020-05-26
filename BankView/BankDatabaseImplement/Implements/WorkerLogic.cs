@@ -32,7 +32,6 @@ namespace BankDatabaseImplement.Implements
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
                         WorkerFIO = elem.Element("WorkerFIO").Value,
-                        Salary = Convert.ToInt32(elem.Element("Salary").Value),
                     });
                 }
             }

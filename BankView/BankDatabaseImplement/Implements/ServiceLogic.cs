@@ -74,5 +74,46 @@ namespace BankDatabaseImplement.Implements
                 .ToList();
             }
         }
+        public void CreateOrUpdate(ServiceBindingModel model)
+        {
+            using (var context = new BankDatabase())
+            {
+                Service element;
+                if (model.Id.HasValue)
+                {
+                    element = context.Services.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                }
+                else
+                {
+                    element = new Service();
+                    context.Services.Add(element);
+                }
+               // element.ClientId = model.ClientId == 0 ? element.ClientId : model.ClientId;
+                element.WorkerId = model.WorkerId == 0 ? element.WorkerId : model.WorkerId;
+                element.TypeService = model.TypeService;
+               // element.Status = model.Status;
+                context.SaveChanges();
+            }
+        }
+        public void Delete(ServiceBindingModel model)
+        {
+            using (var context = new BankDatabase())
+            {
+                Service element = context.Services.FirstOrDefault(rec => rec.Id == model.Id);
+                if (element != null)
+                {
+                    context.Services.Remove(element);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    throw new Exception("Элемент не найден");
+                }
+            }
+        }
     }
 }
