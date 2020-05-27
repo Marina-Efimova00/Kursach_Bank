@@ -7,11 +7,11 @@ namespace BankBussinessLogic.ViewModel
 {
     public class ServiceClientViewModel
     {
+        public int Id { get; set; }
         public int ServiceId { get; set; }
-        public int ClientPassportData { get; set; }
-        [DisplayName("Услуга")]
-        public string TypeService { get; set; }
+        public int ClientId { get; set; }
         [DisplayName("ФИО клиента")]
         public string ClientFIO { get; set; }
+        public int Count { get; set; }
     }
 }

@@ -7,15 +7,13 @@ using System.Text;
 
 namespace BankDatabaseImplement.Model
 {
-    [DataContract]
     public class Worker
     {
-        [DataMember]
         public int Id { get; set; }
-        [DataMember]
         [Required]
         public string WorkerFIO { get; set; }
         public int Salary { get; set; }
+        [ForeignKey("WorkerId")]
         public virtual List<Service> Serveces { get; set; }
     }
 }

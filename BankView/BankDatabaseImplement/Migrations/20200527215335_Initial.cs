@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankDatabaseImplement.Migrations
 {
@@ -17,8 +16,7 @@ namespace BankDatabaseImplement.Migrations
                     ClientFIO = table.Column<string>(nullable: false),
                     Gender = table.Column<string>(nullable: false),
                     Job = table.Column<string>(nullable: false),
-                    Number = table.Column<int>(nullable: false),
-                    ClientDate = table.Column<DateTime>(nullable: false)
+                    Number = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -45,8 +43,10 @@ namespace BankDatabaseImplement.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    WorkerId = table.Column<int>(nullable: false),
+                    ClientId = table.Column<int>(nullable: false),
                     TypeService = table.Column<string>(nullable: false),
-                    WorkerId = table.Column<int>(nullable: true)
+                    Status = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +56,7 @@ namespace BankDatabaseImplement.Migrations
                         column: x => x.WorkerId,
                         principalTable: "Workers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,7 +66,8 @@ namespace BankDatabaseImplement.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ServiceId = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false)
+                    ClientId = table.Column<int>(nullable: false),
+                    Count = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

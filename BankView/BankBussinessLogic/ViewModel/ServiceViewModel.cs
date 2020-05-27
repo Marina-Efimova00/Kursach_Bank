@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankBussinessLogic.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -16,8 +17,8 @@ namespace BankBussinessLogic.ViewModel
         public string TypeService { get; set; }
         [DisplayName("ФИО клиента")]
         public string ClientFIO { get; set; }
-       /* [DisplayName("Статус")]
-        public Status Status { get; set; }*/
-
+        [DisplayName("Статус")]
+        public Status Status { get; set; }
+        public List<ServiceClientViewModel> ServiceClients { get; set; }
     }
 }

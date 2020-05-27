@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BankBussinessLogic.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,10 +13,14 @@ namespace BankDatabaseImplement.Model
     {
         [DataMember]
         public int Id { get; set; }
+        public int WorkerId { get; set; }
+        public int ClientId { get; set; }
         [DataMember]
         [Required]
         public string TypeService { get; set; }
+        public Status Status { get; set; }
         public virtual Worker Worker { get; set; }
+        [ForeignKey("ServiceId")]
         public virtual List<ServiceClient> ServiseClients { get; set; }
     }
 }
