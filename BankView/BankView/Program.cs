@@ -27,11 +27,11 @@ namespace BankView
         private static IUnityContainer BuildUnityContainer()
         {
             var currentContainer = new UnityContainer();
+            currentContainer.RegisterType<IWorkerLogic, WorkerLogic>(new
+            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IClientLogic, ClientLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IServiceLogic, ServiceLogic>(new
-           HierarchicalLifetimeManager());
-            currentContainer.RegisterType<IWorkerLogic, WorkerLogic>(new
            HierarchicalLifetimeManager());
             return currentContainer;
         }

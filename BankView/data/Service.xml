@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Services>
-<Service Id="1">
+  <Service Id="1">
     <TypeService>Кредит</TypeService>
+    <WorkerId>1</WorkerId>
   </Service>
 </Services>

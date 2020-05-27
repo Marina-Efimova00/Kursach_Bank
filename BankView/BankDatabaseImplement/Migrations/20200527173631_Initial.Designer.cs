@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankDatabaseImplement.Migrations
 {
     [DbContext(typeof(BankDatabase))]
-    [Migration("20200526193613_Initial")]
+    [Migration("20200527173631_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -61,17 +61,11 @@ namespace BankDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Status")
-                        .HasColumnType("int");
-
                     b.Property<string>("TypeService")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("WorkerId")
+                    b.Property<int?>("WorkerId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -126,9 +120,7 @@ namespace BankDatabaseImplement.Migrations
                 {
                     b.HasOne("BankDatabaseImplement.Model.Worker", "Worker")
                         .WithMany("Serveces")
-                        .HasForeignKey("WorkerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("WorkerId");
                 });
 
             modelBuilder.Entity("BankDatabaseImplement.Model.ServiceClient", b =>

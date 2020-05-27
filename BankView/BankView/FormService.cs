@@ -1,5 +1,4 @@
 ﻿using BankBussinessLogic.BindingModel;
-using BankBussinessLogic.BusinessLogics;
 using BankBussinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -18,12 +17,10 @@ namespace BankView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly ServiceLogic logic;
         private readonly IServiceLogic serviceLogic;
-        public FormService(ServiceLogic logic, IServiceLogic serviceLogic)
+        public FormService(IServiceLogic serviceLogic)
         {
             InitializeComponent();
-            this.logic = logic;
             this.serviceLogic = serviceLogic;
         }
 
@@ -39,9 +36,9 @@ namespace BankView
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
-                    //dataGridView.Columns[0].Visible = false;
-                    //dataGridView.Columns[1].Visible = false;
-                    //dataGridView.Columns[2].Visible = false;
+                    dataGridView.Columns[0].Visible = false;
+                    dataGridView.Columns[1].Visible = false;
+                    dataGridView.Columns[2].Visible = false;
                     // dataGridView.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -54,48 +51,9 @@ namespace BankView
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            var form = Container.Resolve<FormCreate>();
-            form.ShowDialog();
+            //var form = Container.Resolve<FormCreate>();
+            //form.ShowDialog();
             LoadData();
-        }
-
-        private void buttonTakeOrderInWork_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                try
-                {
-                    logic.TakeOrderInWork(new ChangeStatusBindingModel { ServiceId = id });
-                    LoadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void buttonReady_Click(object sender, EventArgs e)
-        {
-            if (dataGridView.SelectedRows.Count == 1)
-            {
-                int id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
-                try
-                {
-                    logic.FinishOrder(new ChangeStatusBindingModel
-                    {
-                        ServiceId = id
-                    });
-                    LoadData();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                }
-            }
         }
     }
 }

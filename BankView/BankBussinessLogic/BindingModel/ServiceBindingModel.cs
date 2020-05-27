@@ -1,5 +1,4 @@
-﻿using BankBussinessLogic.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,7 +9,5 @@ namespace BankBussinessLogic.BindingModel
         public int? Id { get; set; }
         public string TypeService { get; set; }
         public int WorkerId { get; set; }
-        public int ClientId { get; set; }
-        public Status Status { get; set; }
     }
 }
