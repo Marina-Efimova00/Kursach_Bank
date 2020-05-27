@@ -45,9 +45,10 @@ namespace BankView
                 comboBoxClientFIO.DataSource = listC;
                 comboBoxClientFIO.SelectedItem = null;
                 var listS = logicS.Read(null);
-                comboBoxService.DataSource = list;
                 comboBoxService.DisplayMember = "TypeService";
                 comboBoxService.ValueMember = "Id";
+                comboBoxService.DataSource = listS;
+                comboBoxService.SelectedItem = null;
             }
             catch (Exception ex)
             {

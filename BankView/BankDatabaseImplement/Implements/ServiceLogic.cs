@@ -62,9 +62,7 @@ namespace BankDatabaseImplement.Implements
         public List<ServiceViewModel> Read(ServiceBindingModel model)
         {
             SaveToDatabase();
-            using (var context = new BankDatabase())
-            {
-                return context.Services
+            return Services
                 .Where(rec => model == null || rec.Id == model.Id)
                 .Select(rec => new ServiceViewModel
                 {
@@ -72,7 +70,7 @@ namespace BankDatabaseImplement.Implements
                     TypeService = rec.TypeService
                 })
                 .ToList();
-            }
+
         }
         public void CreateOrUpdate(ServiceBindingModel model)
         {
@@ -92,10 +90,10 @@ namespace BankDatabaseImplement.Implements
                     element = new Service();
                     context.Services.Add(element);
                 }
-               // element.ClientId = model.ClientId == 0 ? element.ClientId : model.ClientId;
+                element.ClientId = model.ClientId == 0 ? element.ClientId : model.ClientId;
                 element.WorkerId = model.WorkerId == 0 ? element.WorkerId : model.WorkerId;
                 element.TypeService = model.TypeService;
-               // element.Status = model.Status;
+                element.Status = model.Status;
                 context.SaveChanges();
             }
         }

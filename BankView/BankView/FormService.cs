@@ -39,9 +39,9 @@ namespace BankView
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
-                    dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[1].Visible = false;
-                    dataGridView.Columns[2].Visible = false;
+                    //dataGridView.Columns[0].Visible = false;
+                    //dataGridView.Columns[1].Visible = false;
+                    //dataGridView.Columns[2].Visible = false;
                     // dataGridView.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
