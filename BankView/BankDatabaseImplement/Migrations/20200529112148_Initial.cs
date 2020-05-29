@@ -44,7 +44,6 @@ namespace BankDatabaseImplement.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     WorkerId = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false),
                     TypeService = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false)
                 },
@@ -66,8 +65,7 @@ namespace BankDatabaseImplement.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     ServiceId = table.Column<int>(nullable: false),
-                    ClientId = table.Column<int>(nullable: false),
-                    Count = table.Column<int>(nullable: false)
+                    ClientId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

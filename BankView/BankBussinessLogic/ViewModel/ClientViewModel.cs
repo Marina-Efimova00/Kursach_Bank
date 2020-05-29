@@ -18,5 +18,6 @@ namespace BankBussinessLogic.ViewModel
         public int PassportData { get; set; }
         [DisplayName("Номер телефона")]
         public int Number { get; set; }
+        public virtual List<ServiceClientViewModel> ServiceClients { get; set; }
     }
 }

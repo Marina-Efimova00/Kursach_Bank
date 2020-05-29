@@ -13,14 +13,14 @@ namespace BankDatabaseImplement.Model
     {
         [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public int WorkerId { get; set; }
-        public int ClientId { get; set; }
         [DataMember]
         [Required]
         public string TypeService { get; set; }
+        [DataMember]
         public Status Status { get; set; }
         public virtual Worker Worker { get; set; }
-        [ForeignKey("ServiceId")]
         public virtual List<ServiceClient> ServiseClients { get; set; }
     }
 }

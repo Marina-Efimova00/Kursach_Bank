@@ -55,9 +55,6 @@ namespace BankDatabaseImplement.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
@@ -83,9 +80,6 @@ namespace BankDatabaseImplement.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("ClientId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Count")
                         .HasColumnType("int");
 
                     b.Property<int>("ServiceId")
@@ -131,7 +125,7 @@ namespace BankDatabaseImplement.Migrations
             modelBuilder.Entity("BankDatabaseImplement.Model.ServiceClient", b =>
                 {
                     b.HasOne("BankDatabaseImplement.Model.Client", "Client")
-                        .WithMany()
+                        .WithMany("ServiceClients")
                         .HasForeignKey("ClientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
