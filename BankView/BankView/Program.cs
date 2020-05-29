@@ -1,6 +1,7 @@
 ﻿
 using BankBussinessLogic.Interfaces;
 using BankDatabaseImplement.Implements;
+using Microsoft.Identity.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,10 @@ namespace BankView
         [STAThread]
         static void Main()
         {
+            ServiceLogic serviceLogic = new ServiceLogic();
+            WorkerLogic logic= new WorkerLogic();
+            logic.SaveToDatabase();
+            serviceLogic.SaveToDatabase();
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -9,5 +9,6 @@ namespace BankBussinessLogic.Interfaces
     public interface IServiceLogic
     {
         List<ServiceViewModel> Read(ServiceBindingModel model);
+        void CreateOrUpdate(ServiceBindingModel model);
     }
 }

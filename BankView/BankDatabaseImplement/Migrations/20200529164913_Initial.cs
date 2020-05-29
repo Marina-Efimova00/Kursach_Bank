@@ -43,7 +43,7 @@ namespace BankDatabaseImplement.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    WorkerId = table.Column<int>(nullable: false),
+                    WorkerId = table.Column<int>(nullable: true),
                     TypeService = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false)
                 },
@@ -55,7 +55,7 @@ namespace BankDatabaseImplement.Migrations
                         column: x => x.WorkerId,
                         principalTable: "Workers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(

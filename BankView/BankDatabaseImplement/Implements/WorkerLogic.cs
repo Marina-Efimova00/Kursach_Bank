@@ -62,7 +62,6 @@ namespace BankDatabaseImplement.Implements
         }
         public List<WorkerViewModel> Read(WorkerBindingModel model)
         {
-            SaveToDatabase();
             using (var context = new BankDatabase())
             {
                 return context.Workers

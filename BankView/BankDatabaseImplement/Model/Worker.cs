@@ -14,6 +14,6 @@ namespace BankDatabaseImplement.Model
         public string WorkerFIO { get; set; }
         public int Salary { get; set; }
         [ForeignKey("WorkerId")]
-        public virtual List<Service> Serveces { get; set; }
+        public virtual List<Service> Services { get; set; }
     }
 }

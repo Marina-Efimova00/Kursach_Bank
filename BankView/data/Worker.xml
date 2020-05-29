@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Workers>
-  <Worker Id="1">
+  <Worker Id="0">
     <WorkerFIO>Иванов Иван Иванович</WorkerFIO>
   </Worker>
-  <Worker Id="2">
+  <Worker Id="1">
     <WorkerFIO>Ефимова Марина Михайловна</WorkerFIO>
   </Worker>
 </Workers>
