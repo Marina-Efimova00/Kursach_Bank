@@ -37,6 +37,7 @@ namespace BankDatabaseImplement.Implements
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
                         WorkerId = Convert.ToInt32(elem.Element("WorkerId").Value),
+                        //ClientId = Convert.ToInt32(elem.Element("ClientId").Value),
                         TypeService = elem.Element("TypeService").Value,
                         Status = (Status)Enum.Parse(typeof(Status), elem.Element("Status").Value),
                     });
@@ -47,12 +48,12 @@ namespace BankDatabaseImplement.Implements
 
         public void SaveToDatabase()
         {
+            var services = LoadServices();
             using (var context = new BankDatabase())
-            {  
-                var services = LoadServices();
+            {
                 foreach (var service in services)
                 {
-                    Service  element = context.Services.FirstOrDefault(rec => rec.Id != service.Id);
+                    Service element = context.Services.FirstOrDefault(rec => rec.Id != service.Id);
                     if (element != null)
                     {
                         break;
@@ -62,12 +63,11 @@ namespace BankDatabaseImplement.Implements
                         element = new Service();
                         context.Services.Add(element);
                     }
-                    
-                    element.WorkerId = 1;
+                    element.WorkerId = service.WorkerId;
+                    //element.ClientId = service.ClientId;
                     element.TypeService = service.TypeService;
                     element.Status = service.Status;
                     context.SaveChanges();
-                    
                 }
             }
         }
@@ -75,12 +75,14 @@ namespace BankDatabaseImplement.Implements
         {
             using (var context = new BankDatabase())
             {
+                SaveToDatabase();
                 return context.Services
                 .Where(rec => model == null || rec.Id == model.Id)
                 .Select(rec => new ServiceViewModel
                 {
                     Id = rec.Id,
                     WorkerId = rec.WorkerId.Value,
+                    //ClientId = rec.ClientId.Value,
                     TypeService = rec.TypeService,
                     Status = rec.Status,
                     WorkerFIO = rec.Worker.WorkerFIO
@@ -110,7 +112,7 @@ namespace BankDatabaseImplement.Implements
                     element = new Service();
                     context.Services.Add(element);
                 }
-                element.WorkerId = model.WorkerId;
+                //element.WorkerId = model.WorkerId;
                 element.TypeService = model.TypeService;
                 element.Status = model.Status;
                 context.SaveChanges();

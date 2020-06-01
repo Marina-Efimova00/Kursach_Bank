@@ -6,8 +6,24 @@
     <Status>Выполняется</Status>
   </Service>
 <Service Id="1">
-    <WorkerId>2</WorkerId>
+    <WorkerId>3</WorkerId>
     <TypeService>Рассрочка</TypeService>   
+    <Status>Готово</Status>
+  </Service>
+<Service Id="2">
+    <WorkerId>2</WorkerId>
+    <TypeService>Вклад</TypeService>   
+    <Status>Готово</Status>
+  </Service>
+<Service Id="3">
+    <WorkerId>1</WorkerId>
+    <ClientId>1</ClientId>
+    <TypeService>Вклад</TypeService>   
+    <Status>Готово</Status>
+  </Service>
+<Service Id="4">
+    <WorkerId>3</WorkerId>
+    <TypeService>Вклад</TypeService>   
     <Status>Готово</Status>
   </Service>
 </Services>
