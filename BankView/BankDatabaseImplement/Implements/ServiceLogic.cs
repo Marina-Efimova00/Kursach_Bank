@@ -53,7 +53,7 @@ namespace BankDatabaseImplement.Implements
             {
                 foreach (var service in services)
                 {
-                    Service element = context.Services.FirstOrDefault(rec => rec.Id != service.Id);
+                    Service element = context.Services.FirstOrDefault(rec => rec.Id == service.Id);
                     if (element != null)
                     {
                         break;
@@ -77,12 +77,12 @@ namespace BankDatabaseImplement.Implements
             {
                 SaveToDatabase();
                 return context.Services
-                .Where(rec => model == null || rec.Id == model.Id)
+               .Where(rec => model == null || rec.Id == model.Id)
                 .Select(rec => new ServiceViewModel
                 {
                     Id = rec.Id,
                     WorkerId = rec.WorkerId.Value,
-                    //ClientId = rec.ClientId.Value,
+                   // ClientId = rec.ClientId.Value,
                     TypeService = rec.TypeService,
                     Status = rec.Status,
                     WorkerFIO = rec.Worker.WorkerFIO

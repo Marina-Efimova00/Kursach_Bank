@@ -13,7 +13,7 @@ namespace BankDatabaseImplement.Model
     {
         public int Id { get; set; }
         public int? WorkerId { get; set; }
-        public int? ClientId { get; set; }
+       // public int ClientId { get; set; }
         [Required]
         public string TypeService { get; set; }
         public Status Status { get; set; }
