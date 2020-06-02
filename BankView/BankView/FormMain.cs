@@ -1,5 +1,4 @@
-﻿using BankBussinessLogic.BusinessLogics;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +15,9 @@ namespace BankView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        public readonly Mainlogic logic;
-        public FormMain(Mainlogic logic)
+        public FormMain()
         {
             InitializeComponent();
-            this.logic = logic;
         }
 
         private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -35,6 +32,11 @@ namespace BankView
             var form = Container.Resolve<FormService>();
             form.ShowDialog();
         }
-        
+
+        private void расчтеССотрудникамиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormWorker>();
+            form.ShowDialog();
+        }
     }
 }

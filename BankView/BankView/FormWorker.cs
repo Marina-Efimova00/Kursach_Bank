@@ -1,5 +1,4 @@
-﻿using BankBussinessLogic.BindingModel;
-using BankBussinessLogic.Interfaces;
+﻿using BankBussinessLogic.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,18 +12,18 @@ using Unity;
 
 namespace BankView
 {
-    public partial class FormService : Form
+    public partial class FormWorker : Form
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        private readonly IServiceLogic serviceLogic;
-        public FormService(IServiceLogic serviceLogic)
+        private readonly IWorkerLogic workerLogic;
+        public FormWorker(IWorkerLogic workerLogic)
         {
             InitializeComponent();
-            this.serviceLogic = serviceLogic;
+            this.workerLogic = workerLogic;
         }
 
-        private void FormService_Load(object sender, EventArgs e)
+        private void FormWorker_Load(object sender, EventArgs e)
         {
             LoadData();
         }
@@ -32,13 +31,13 @@ namespace BankView
         {
             try
             {
-                var list = serviceLogic.Read(null);
+                var list = workerLogic.Read(null);
                 if (list != null)
                 {
                     dataGridView.DataSource = list;
                     dataGridView.Columns[0].Visible = false;
-                    dataGridView.Columns[1].Visible = false;
-                   // dataGridView.Columns[2].Visible = false;
+                    //dataGridView.Columns[1].Visible = false;
+                    // dataGridView.Columns[2].Visible = false;
                     // dataGridView.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
                 }
             }
@@ -49,11 +48,10 @@ namespace BankView
             }
         }
 
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonSalary_Click(object sender, EventArgs e)
         {
-            //var form = Container.Resolve<FormCreate>();
-            //form.ShowDialog();
-            LoadData();
+            var form = Container.Resolve<FormSalary>();
+            form.ShowDialog();
         }
     }
 }

@@ -2,6 +2,7 @@
 <Services>
   <Service Id="1">
     <WorkerId>1</WorkerId>
+    <ClientId>1</ClientId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
   </Service>
@@ -13,12 +14,12 @@
    <Service Id="3">
     <WorkerId>2</WorkerId>
     <TypeService>Вклад</TypeService>   
-    <Status>Готово</Status>
+    <Status>Выполняется</Status>
    </Service>
    <Service Id="4">
     <WorkerId>2</WorkerId>
     <TypeService>Вклад</TypeService>   
-    <Status>Готово</Status>
+    <Status>Выполняется</Status>
    </Service>
    <Service Id="5">
     <WorkerId>3</WorkerId>

@@ -32,9 +32,9 @@
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.админыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.услугиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.услугиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -74,6 +74,13 @@
             this.админыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.админыToolStripMenuItem.Text = "Админы";
             // 
+            // услугиToolStripMenuItem
+            // 
+            this.услугиToolStripMenuItem.Name = "услугиToolStripMenuItem";
+            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.услугиToolStripMenuItem.Text = "Услуги";
+            this.услугиToolStripMenuItem.Click += new System.EventHandler(this.услугиToolStripMenuItem_Click);
+            // 
             // отчетыToolStripMenuItem
             // 
             this.отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
@@ -85,13 +92,7 @@
             this.расчтеССотрудникамиToolStripMenuItem.Name = "расчтеССотрудникамиToolStripMenuItem";
             this.расчтеССотрудникамиToolStripMenuItem.Size = new System.Drawing.Size(182, 24);
             this.расчтеССотрудникамиToolStripMenuItem.Text = "Расчет с сотрудниками";
-            // 
-            // услугиToolStripMenuItem
-            // 
-            this.услугиToolStripMenuItem.Name = "услугиToolStripMenuItem";
-            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.услугиToolStripMenuItem.Text = "Услуги";
-            this.услугиToolStripMenuItem.Click += new System.EventHandler(this.услугиToolStripMenuItem_Click);
+            this.расчтеССотрудникамиToolStripMenuItem.Click += new System.EventHandler(this.расчтеССотрудникамиToolStripMenuItem_Click);
             // 
             // FormMain
             // 

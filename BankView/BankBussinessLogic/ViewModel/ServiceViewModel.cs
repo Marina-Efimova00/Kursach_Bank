@@ -15,16 +15,11 @@ namespace BankBussinessLogic.ViewModel
         [DataMember]
         public int WorkerId { get; set; }
         [DataMember]
-        public int ClientId { get; set; }
-        [DataMember]
         [DisplayName("ФИО сотрудника")]
         public string WorkerFIO { get; set; }
         [DataMember]
         [DisplayName("Вид услуги")]
         public string TypeService { get; set; }
-        [DataMember]
-        [DisplayName("ФИО клиента")]
-        public string ClientFIO { get; set; }
         [DataMember]
         [DisplayName("Статус")]
         public Status Status { get; set; }
