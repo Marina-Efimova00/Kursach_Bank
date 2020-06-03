@@ -54,7 +54,7 @@ namespace BankView
                     int countDone = 0;
                     int countClient = 0;
                     var service = logicS.Read(new ServiceBindingModel{WorkerId = id})?[0];
-
+                   // foreach(var serv in service)
                     if (service.Status == Status.Готово)
                         countDone++;
                     if ((service.Status == Status.Готово) || (service.Status == Status.Выполняется))
@@ -72,6 +72,10 @@ namespace BankView
                    MessageBoxIcon.Error);
                 }
             }
+        }
+        private void comboBoxFIO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalcSum();
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -113,9 +117,6 @@ namespace BankView
             Close();
         }
 
-        private void comboBoxFIO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CalcSum();
-        }
+
     }
 }
