@@ -32,12 +32,13 @@ namespace BankView
         {
             try
             {
+                comboBoxFIO.DataSource = null;
                 var list = logicW.Read(null);
-                comboBoxFIO.SelectedItem = null;
+                
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
-                comboBoxFIO.ValueMember = "Id";
-                
+                comboBoxFIO.ValueMember = "Id";  
+                comboBoxFIO.SelectedItem = null;
             }
             catch (Exception ex)
             {
@@ -48,7 +49,7 @@ namespace BankView
         private void CalcSum()
         {
             
-            if (comboBoxFIO.SelectedItem != null && !string.IsNullOrEmpty(textBoxSalary.Text))
+            if (comboBoxFIO.SelectedValue != null)
             {
                 try
                 {
