@@ -33,9 +33,11 @@ namespace BankView
             try
             {
                 var list = logicW.Read(null);
+                comboBoxFIO.SelectedItem = null;
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
                 comboBoxFIO.ValueMember = "Id";
+                
             }
             catch (Exception ex)
             {
@@ -45,7 +47,8 @@ namespace BankView
         }
         private void CalcSum()
         {
-            if (comboBoxFIO.SelectedValue != null)
+            
+            if (comboBoxFIO.SelectedItem != null && !string.IsNullOrEmpty(textBoxSalary.Text))
             {
                 try
                 {
@@ -54,17 +57,19 @@ namespace BankView
                     int countDone = 0;
                     int countClient = 0;
                     var service = logicS.Read(new ServiceBindingModel{WorkerId = id})?[0];
-                   // foreach(var serv in service)
-                    if (service.Status == Status.Готово)
+                    var servi = logicS.Read(null);
+                    foreach (var serv in servi)
+                    {
+                        if (service.Status == Status.Готово)
                         countDone++;
-                    if ((service.Status == Status.Готово) || (service.Status == Status.Выполняется))
+                        if ((service.Status == Status.Готово) || (service.Status == Status.Выполняется))
                         countClient++;
-                    
+                    }
                     if (countDone == countClient)
                         model.Salary = 40000;
                     if (countDone < countClient)
                         model.Salary = 30000;
-                    textBoxSalary.Text = (model.Salary).ToString();
+                    textBoxSalary.Text = model.Salary.ToString();
                 }
                 catch (Exception ex)
                 {
@@ -91,13 +96,12 @@ namespace BankView
                MessageBoxIcon.Error);
                 return;
             }
-            /*try
+            try
             {
-                logicW.CreateOrder(new CreateOrderBindingModel
+                logicW.CreateOrUpdate(new WorkerBindingModel
                 {
-                    MebelId = Convert.ToInt32(comboBoxMebel.SelectedValue),
-                    Count = Convert.ToInt32(textBoxCount.Text),
-                    Sum = Convert.ToDecimal(textBoxSum.Text)
+                    Id = Convert.ToInt32(comboBoxFIO.SelectedValue),
+                    Salary =Convert.ToInt32(textBoxSalary.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -108,7 +112,7 @@ namespace BankView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)

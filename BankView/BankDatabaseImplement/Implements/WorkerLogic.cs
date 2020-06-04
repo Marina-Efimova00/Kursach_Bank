@@ -66,6 +66,7 @@ namespace BankDatabaseImplement.Implements
             {
                 return context.Workers
                 .Where(rec => model == null || rec.Id == model.Id)
+                .ToList()
                 .Select(rec => new WorkerViewModel
                 {
                     Id = rec.Id,
@@ -73,6 +74,28 @@ namespace BankDatabaseImplement.Implements
                     Salary = rec.Salary
                 })
                 .ToList();
+            }
+        }
+        public void CreateOrUpdate(WorkerBindingModel model)
+        {
+            using (var context = new BankDatabase())
+            {
+                Worker element = context.Workers.FirstOrDefault(rec => rec.Id == model.Id);
+                if (model.Id.HasValue)
+                {
+                    element = context.Workers.FirstOrDefault(rec => rec.Id == model.Id);
+                    if (element == null)
+                    {
+                        throw new Exception("Элемент не найден");
+                    }
+                }
+                else
+                {
+                    element = new Worker();
+                    context.Workers.Add(element);
+                }
+                element.Salary = model.Salary;
+                context.SaveChanges();
             }
         }
     }
