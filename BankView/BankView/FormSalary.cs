@@ -90,6 +90,12 @@ namespace BankView
 
         private void buttonCharge_Click(object sender, EventArgs e)
         {
+            if (comboBoxFIO.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите ФИО сотрудника", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
             if (comboBoxFIO.SelectedValue != null)
             {
                 try
