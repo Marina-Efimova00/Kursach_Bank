@@ -94,6 +94,7 @@ namespace BankDatabaseImplement.Implements
                     element = new Worker();
                     context.Workers.Add(element);
                 }
+                element.WorkerFIO = model.WorkerFIO;
                 element.Salary = model.Salary;
                 context.SaveChanges();
             }

@@ -52,6 +52,7 @@ namespace BankView
         {
             var form = Container.Resolve<FormSalary>();
             form.ShowDialog();
+            LoadData();
         }
     }
 }

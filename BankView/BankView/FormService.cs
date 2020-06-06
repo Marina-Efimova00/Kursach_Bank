@@ -48,12 +48,5 @@ namespace BankView
                MessageBoxIcon.Error);
             }
         }
-
-        private void buttonCreate_Click(object sender, EventArgs e)
-        {
-            //var form = Container.Resolve<FormCreate>();
-            //form.ShowDialog();
-            LoadData();
-        }
     }
 }

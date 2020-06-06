@@ -21,8 +21,10 @@ namespace BankView
         public new IUnityContainer Container { get; set; }
         private readonly IWorkerLogic logicW;
         private readonly IServiceLogic logicS;
-        
-        
+        public int Id { set { id = value; } }
+        private int? id;
+
+
         public FormSalary(IWorkerLogic logicW, IServiceLogic logicS)
         {
             InitializeComponent();
@@ -65,6 +67,7 @@ namespace BankView
                 logicW.CreateOrUpdate(new WorkerBindingModel
                 {
                     Id = Convert.ToInt32(comboBoxFIO.SelectedValue),
+                    WorkerFIO = comboBoxFIO.Text,
                     Salary =Convert.ToInt32(textBoxSalary.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
@@ -91,27 +94,26 @@ namespace BankView
             {
                 try
                 {
-                    var client = new Dictionary<int, bool>();
+                    int client = 0;
                     int id = Convert.ToInt32(comboBoxFIO.SelectedValue);
                     WorkerBindingModel model = new WorkerBindingModel();
-                    var service = logicS.Read(new ServiceBindingModel { WorkerId = id }).FirstOrDefault();
                     var countDone = 0;
                     var servi = logicS.Read(null);
                     foreach (var serv in servi)
                     {
                         
-                        if (!client.ContainsKey(serv.WorkerId))
+                        if (serv.WorkerId == id)
                         {
-                            client.Add(serv.WorkerId, true);
+                            client++;
                             if (serv.Status == Status.Готово)
                                 countDone++;
                         }
                     }
-                    if (countDone == client.Count)
+                    if (countDone == client)
                         model.Salary = 40000;
-                    if ((client.Count - countDone >= 1) && (client.Count - countDone <= 3))
+                    if ((client - countDone >= 1) && (client - countDone <= 3))
                         model.Salary = 30000;
-                    if (client.Count - countDone > 3)
+                    if (client - countDone > 3)
                         model.Salary = 20000;
                     textBoxSalary.Text = model.Salary.ToString();
                 }
