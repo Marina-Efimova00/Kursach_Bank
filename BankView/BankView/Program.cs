@@ -14,20 +14,24 @@ namespace BankView
 {
     static class Program
     {
+        public static bool IsLogined;
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            //ServiceLogic serviceLogic = new ServiceLogic();
             WorkerLogic logic= new WorkerLogic();
-            logic.SaveToDatabase();
-            //serviceLogic.SaveToDatabase();
+            logic.SaveToDatabase();;
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(container.Resolve<FormMain>());
+            var login = new FormAvtorizatsiya();
+            login.ShowDialog();
+            if (IsLogined)
+            {
+                Application.Run(container.Resolve<FormMain>());
+            }
         }
         private static IUnityContainer BuildUnityContainer()
         {

@@ -31,7 +31,6 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.админыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.услугиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +54,6 @@
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.клиентыToolStripMenuItem,
-            this.админыToolStripMenuItem,
             this.услугиToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
@@ -67,12 +65,6 @@
             this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
             this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
-            // 
-            // админыToolStripMenuItem
-            // 
-            this.админыToolStripMenuItem.Name = "админыToolStripMenuItem";
-            this.админыToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.админыToolStripMenuItem.Text = "Админы";
             // 
             // услугиToolStripMenuItem
             // 
@@ -115,7 +107,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem справочникиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem админыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расчтеССотрудникамиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem услугиToolStripMenuItem;

@@ -170,6 +170,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="APIClient.cs" />
+    <Compile Include="FormAvtorizatsiya.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAvtorizatsiya.Designer.cs">
+      <DependentUpon>FormAvtorizatsiya.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormClient.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -220,6 +226,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAvtorizatsiya.resx">
+      <DependentUpon>FormAvtorizatsiya.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClient.resx">
       <DependentUpon>FormClient.cs</DependentUpon>
     </EmbeddedResource>
