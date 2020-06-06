@@ -34,6 +34,7 @@
             this.textBoxSalary = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonCharge = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -52,7 +53,6 @@
             this.comboBoxFIO.Name = "comboBoxFIO";
             this.comboBoxFIO.Size = new System.Drawing.Size(389, 24);
             this.comboBoxFIO.TabIndex = 1;
-            this.comboBoxFIO.SelectedIndexChanged += new System.EventHandler(this.comboBoxFIO_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -90,11 +90,22 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // buttonCharge
+            // 
+            this.buttonCharge.Location = new System.Drawing.Point(54, 106);
+            this.buttonCharge.Name = "buttonCharge";
+            this.buttonCharge.Size = new System.Drawing.Size(152, 38);
+            this.buttonCharge.TabIndex = 6;
+            this.buttonCharge.Text = "Высчитать";
+            this.buttonCharge.UseVisualStyleBackColor = true;
+            this.buttonCharge.Click += new System.EventHandler(this.buttonCharge_Click);
+            // 
             // FormSalary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(559, 166);
+            this.Controls.Add(this.buttonCharge);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxSalary);
@@ -117,5 +128,6 @@
         private System.Windows.Forms.TextBox textBoxSalary;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonCharge;
     }
 }

@@ -79,7 +79,7 @@ namespace BankDatabaseImplement.Implements
                 .Select(rec => new ServiceViewModel
                 {
                     Id = rec.Id,
-                    WorkerId = rec.WorkerId.Value,
+                    WorkerId = rec.WorkerId,
                     TypeService = rec.TypeService,
                     Status = rec.Status,
                     WorkerFIO = rec.Worker.WorkerFIO

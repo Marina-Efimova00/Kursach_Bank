@@ -15,7 +15,7 @@ namespace BankDatabaseImplement.Implements
         {
             using (var context = new BankDatabase())
             {
-                Client element = context.Clients.FirstOrDefault(rec => rec.Id == model.Id);
+                Client element = context.Clients.FirstOrDefault(rec => rec.ClientFIO == model.ClientFIO && rec.Id == model.Id && rec.Job == model.Job && rec.Number == model.Number && rec.PassportData == model.PassportData && rec.Gender == model.Gender);
                 if (element != null)
                 {
                     throw new Exception("Уже есть такой клиент");

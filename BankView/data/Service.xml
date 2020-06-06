@@ -2,24 +2,23 @@
 <Services>
   <Service Id="1">
     <WorkerId>1</WorkerId>
-    <ClientId>1</ClientId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
   </Service>
   <Service Id="2">
-    <WorkerId>3</WorkerId>
+    <WorkerId>1</WorkerId>
     <TypeService>Рассрочка</TypeService>   
     <Status>Готово</Status>
   </Service>
    <Service Id="3">
-    <WorkerId>2</WorkerId>
+    <WorkerId>1</WorkerId>
     <TypeService>Вклад</TypeService>   
-    <Status>Выполняется</Status>
+    <Status>Готово</Status>
    </Service>
    <Service Id="4">
     <WorkerId>2</WorkerId>
     <TypeService>Вклад</TypeService>   
-    <Status>Выполняется</Status>
+    <Status>Готово</Status>
    </Service>
    <Service Id="5">
     <WorkerId>3</WorkerId>
@@ -27,8 +26,28 @@
     <Status>Готово</Status>
     </Service>
    <Service Id="6">
-    <WorkerId>1</WorkerId>
+    <WorkerId>3</WorkerId>
     <TypeService>Кредит</TypeService>   
-    <Status>Готово</Status>
+    <Status>Выполняется</Status>
+</Service>
+   <Service Id="7">
+    <WorkerId>3</WorkerId>
+    <TypeService>Кредит</TypeService>   
+    <Status>Выполняется</Status>
+</Service>
+   <Service Id="8">
+    <WorkerId>3</WorkerId>
+    <TypeService>Кредит</TypeService>   
+    <Status>Выполняется</Status>
+</Service>
+   <Service Id="9">
+    <WorkerId>3</WorkerId>
+    <TypeService>Кредит</TypeService>   
+    <Status>Выполняется</Status>
   </Service>
+   <Service Id="10">
+    <WorkerId>3</WorkerId>
+    <TypeService>Кредит</TypeService>   
+    <Status>Выполняется</Status>
+</Service>
 </Services>

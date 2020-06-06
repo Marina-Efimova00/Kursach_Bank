@@ -21,6 +21,8 @@ namespace BankView
         public new IUnityContainer Container { get; set; }
         private readonly IWorkerLogic logicW;
         private readonly IServiceLogic logicS;
+        
+        
         public FormSalary(IWorkerLogic logicW, IServiceLogic logicS)
         {
             InitializeComponent();
@@ -32,9 +34,7 @@ namespace BankView
         {
             try
             {
-                comboBoxFIO.DataSource = null;
                 var list = logicW.Read(null);
-                
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
                 comboBoxFIO.ValueMember = "Id";  
@@ -45,43 +45,6 @@ namespace BankView
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
             }
-        }
-        private void CalcSum()
-        {
-            
-            if (comboBoxFIO.SelectedValue != null)
-            {
-                try
-                {
-                    int id = Convert.ToInt32(comboBoxFIO.SelectedValue);
-                    WorkerBindingModel model = new WorkerBindingModel();
-                    int countDone = 0;
-                    int countClient = 0;
-                    var service = logicS.Read(new ServiceBindingModel{WorkerId = id})?[0];
-                    var servi = logicS.Read(null);
-                    foreach (var serv in servi)
-                    {
-                        if (service.Status == Status.Готово)
-                        countDone++;
-                        if ((service.Status == Status.Готово) || (service.Status == Status.Выполняется))
-                        countClient++;
-                    }
-                    if (countDone == countClient)
-                        model.Salary = 40000;
-                    if (countDone < countClient)
-                        model.Salary = 30000;
-                    textBoxSalary.Text = model.Salary.ToString();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
-                   MessageBoxIcon.Error);
-                }
-            }
-        }
-        private void comboBoxFIO_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CalcSum();
         }
         private void buttonSave_Click(object sender, EventArgs e)
         {
@@ -122,6 +85,42 @@ namespace BankView
             Close();
         }
 
-
+        private void buttonCharge_Click(object sender, EventArgs e)
+        {
+            if (comboBoxFIO.SelectedValue != null)
+            {
+                try
+                {
+                    var client = new Dictionary<int, bool>();
+                    int id = Convert.ToInt32(comboBoxFIO.SelectedValue);
+                    WorkerBindingModel model = new WorkerBindingModel();
+                    var service = logicS.Read(new ServiceBindingModel { WorkerId = id }).FirstOrDefault();
+                    var countDone = 0;
+                    var servi = logicS.Read(null);
+                    foreach (var serv in servi)
+                    {
+                        
+                        if (!client.ContainsKey(serv.WorkerId))
+                        {
+                            client.Add(serv.WorkerId, true);
+                            if (serv.Status == Status.Готово)
+                                countDone++;
+                        }
+                    }
+                    if (countDone == client.Count)
+                        model.Salary = 40000;
+                    if ((client.Count - countDone >= 1) && (client.Count - countDone <= 3))
+                        model.Salary = 30000;
+                    if (client.Count - countDone > 3)
+                        model.Salary = 20000;
+                    textBoxSalary.Text = model.Salary.ToString();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+                   MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
