@@ -22,8 +22,6 @@ namespace BankView
         {
             InitializeComponent();
         }
-        public int Id { set { id = value; } }
-        private int? id;
         private void buttonSend_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxMail.Text))
@@ -36,10 +34,9 @@ namespace BankView
                 MessageBox.Show("Выберите формат документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            var service = logic.Read(new ServiceBindingModel { Id = id }).FirstOrDefault();
-            string fileName = "D:\\data\\"+"Worker.docx";
-            reportLogic.SaveServicesToWordFile(fileName, service, Program.Worker.Email);
 
+            string fileName = "D:\\data\\"+"Worker.docx";
+            reportLogic.SaveServicesToWordFile(fileName, textBoxMail.Text);
         }
     }
 }

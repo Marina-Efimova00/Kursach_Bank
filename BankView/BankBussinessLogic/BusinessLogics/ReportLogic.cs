@@ -40,7 +40,7 @@ namespace BankBussinessLogic.BusinessLogics
             }
             return list;
         }
-        public void SaveServicesToExcelFile(string fileName, ServiceViewModel service, string email)
+        public void SaveServicesToExcelFile(string fileName,  string email)
         {
             string title = "Выполненые услуги";
             SaveToExcel.CreateDoc(new ExcelInfo
@@ -51,7 +51,7 @@ namespace BankBussinessLogic.BusinessLogics
             }) ;
             SendMail(email, fileName, title);
         }
-        public void SaveServicesToWordFile(string fileName, ServiceViewModel service, string email)
+        public void SaveServicesToWordFile(string fileName, string email)
         {
             string title = "Выполненые услуги" ;
             SaveToWord.CreateDoc(new WordInfo
@@ -60,7 +60,7 @@ namespace BankBussinessLogic.BusinessLogics
                 Title = title,
                 Services = GetServices(),
             });
-           // SendMail(email, fileName, title);
+            SendMail(email, fileName, title);
         }
         public void SendMail(string email, string fileName, string subject)
         {
