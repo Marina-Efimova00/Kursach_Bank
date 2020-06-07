@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BankBussinessLogic.BindingModel;
+using BankBussinessLogic.BusinessLogics;
+using BankBussinessLogic.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,11 +16,14 @@ namespace BankView
 {
     public partial class FormSend : Form
     {
+        public readonly IServiceLogic logic;
+        public readonly ReportLogic reportLogic;
         public FormSend()
         {
             InitializeComponent();
         }
-
+        public int Id { set { id = value; } }
+        private int? id;
         private void buttonSend_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxMail.Text))
@@ -30,17 +36,10 @@ namespace BankView
                 MessageBox.Show("Выберите формат документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string mail = textBoxMail.Text;
-            if (!string.IsNullOrEmpty(mail))
-            {
-                if (!Regex.IsMatch(mail, @"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
-                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$"))
-                {
-                    MessageBox.Show("Неверный формат для электронной почты", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            
+            var service = logic.Read(new ServiceBindingModel { Id = id }).FirstOrDefault();
+            string fileName = "D:\\data\\"+"Worker.docx";
+            reportLogic.SaveServicesToWordFile(fileName, service, Program.Worker.Email);
+
         }
     }
 }

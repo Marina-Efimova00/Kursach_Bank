@@ -1,5 +1,6 @@
 ﻿
 using BankBussinessLogic.Interfaces;
+using BankBussinessLogic.ViewModel;
 using BankDatabaseImplement.Implements;
 using Microsoft.Identity.Client;
 using System;
@@ -14,6 +15,7 @@ namespace BankView
 {
     static class Program
     {
+        public static WorkerViewModel Worker = null;
         public static bool IsLogined;
         /// <summary>
         /// Главная точка входа для приложения.

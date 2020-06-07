@@ -169,7 +169,6 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIClient.cs" />
     <Compile Include="FormAvtorizatsiya.cs">
       <SubType>Form</SubType>
     </Compile>

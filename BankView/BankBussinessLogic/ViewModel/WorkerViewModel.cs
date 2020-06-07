@@ -17,5 +17,6 @@ namespace BankBussinessLogic.ViewModel
         [DataMember]
         [DisplayName("Зарплата")]
         public int Salary { get; set; }
+        public string Email { get; set; }
     }
 }

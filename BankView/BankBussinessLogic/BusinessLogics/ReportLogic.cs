@@ -51,7 +51,7 @@ namespace BankBussinessLogic.BusinessLogics
             }) ;
             SendMail(email, fileName, title);
         }
-        public void SaveTravelToursToWordFile(string fileName, ServiceViewModel service, string email)
+        public void SaveServicesToWordFile(string fileName, ServiceViewModel service, string email)
         {
             string title = "Выполненые услуги" ;
             SaveToWord.CreateDoc(new WordInfo

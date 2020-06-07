@@ -29,17 +29,18 @@ namespace BankView
         {
             try
             {
-                var ser = logic.GetServices();
-                if (ser != null)
+                var service = logic.GetServices();
+                if (service != null)
                 {
-
                     dataGridView.Rows.Clear();
-                    
-                    foreach (var date in ser)
+                    int sum = 0;
+                    foreach (var serv in service)
                     {
-                        dataGridView.Rows.Add(new object[] { "", date.WorkerFIO, date.TypeService });
+                        dataGridView.Rows.Add(new object[] { serv.WorkerFIO, serv.TypeService, serv.Status,});
+                        sum++;
                     }
-                        
+                    dataGridView.Rows.Add(new object[] { "","Итого",  sum });
+                    
                 }
             }
             catch (Exception ex)
