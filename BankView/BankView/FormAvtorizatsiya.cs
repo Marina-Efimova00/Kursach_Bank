@@ -12,8 +12,9 @@ namespace BankView
 {
     public partial class FormAvtorizatsiya : Form
     {
-        string password = "marina";
-        string login = "123";
+        string login = "marina";
+        string password = "123";
+        
         public FormAvtorizatsiya()
         {
             InitializeComponent();

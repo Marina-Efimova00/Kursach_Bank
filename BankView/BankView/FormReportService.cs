@@ -1,4 +1,6 @@
 ﻿using BankBussinessLogic.BusinessLogics;
+using BankBussinessLogic.Interfaces;
+using BankBussinessLogic.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +27,20 @@ namespace BankView
 
         private void FormReportService_Load(object sender, EventArgs e)
         {
+            try
+            {
+                var ser = logic.GetServices();
+                if (ser != null)
+                {
+
+                    dataGridView.Rows.Clear();
+                    dataGridView.Rows.Add(new object[] { });
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
         }
 

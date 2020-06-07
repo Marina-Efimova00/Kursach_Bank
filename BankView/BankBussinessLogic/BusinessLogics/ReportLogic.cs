@@ -1,4 +1,5 @@
 ﻿using BankBussinessLogic.BindingModel;
+using BankBussinessLogic.Enums;
 using BankBussinessLogic.HelperInfo;
 using BankBussinessLogic.Interfaces;
 using BankBussinessLogic.ViewModel;
@@ -20,6 +21,25 @@ namespace BankBussinessLogic.BusinessLogics
             this.serviceLogic = serviceLogic;
             this.workerLogic = workerLogic;
         }
+        public List<ServiceViewModel> GetServices()
+        {
+            var services = serviceLogic.Read(null);
+            var list = new List<ServiceViewModel>();
+            foreach (var serv in services)
+            {
+                if (serv.Status == Status.Готово)
+                {
+                    var record = new ServiceViewModel
+                    {
+                        WorkerFIO = serv.WorkerFIO,
+                        TypeService = serv.TypeService,
+                        Status = serv.Status
+                    };
+                    list.Add(record);
+                }
+            }
+            return list;
+        }
         public void SaveServicesToExcelFile(string fileName, ServiceViewModel service, string email)
         {
             string title = "Выполненые услуги";
@@ -27,7 +47,8 @@ namespace BankBussinessLogic.BusinessLogics
             {
                 FileName = fileName,
                 Title = title,
-            });
+                Services = GetServices(),
+            }) ;
             SendMail(email, fileName, title);
         }
         public void SaveTravelToursToWordFile(string fileName, ServiceViewModel service, string email)
@@ -37,8 +58,9 @@ namespace BankBussinessLogic.BusinessLogics
             {
                 FileName = fileName,
                 Title = title,
+                Services = GetServices(),
             });
-            SendMail(email, fileName, title);
+           // SendMail(email, fileName, title);
         }
         public void SendMail(string email, string fileName, string subject)
         {
