@@ -34,7 +34,12 @@ namespace BankView
                 {
 
                     dataGridView.Rows.Clear();
-                    dataGridView.Rows.Add(new object[] { });
+                    
+                    foreach (var date in ser)
+                    {
+                        dataGridView.Rows.Add(new object[] { "", date.WorkerFIO, date.TypeService });
+                    }
+                        
                 }
             }
             catch (Exception ex)
