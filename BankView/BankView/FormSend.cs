@@ -18,9 +18,11 @@ namespace BankView
     {
         public readonly IServiceLogic logic;
         public readonly ReportLogic reportLogic;
-        public FormSend()
+        public FormSend(IServiceLogic logic, ReportLogic reportLogic)
         {
             InitializeComponent();
+            this.logic = logic;
+            this.reportLogic = reportLogic;
         }
         private void buttonSend_Click(object sender, EventArgs e)
         {
@@ -34,9 +36,21 @@ namespace BankView
                 MessageBox.Show("Выберите формат документа", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            try
+            {
+                var service = logic.Read(null);
+                foreach (var elem in service)
+                {
+                    string fileName = "С://data//" + "Worker.docx";
+                    reportLogic.SaveServicesToWordFile(fileName, elem, textBoxMail.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
-            string fileName = "D:\\data\\"+"Worker.docx";
-            reportLogic.SaveServicesToWordFile(fileName, textBoxMail.Text);
         }
     }
 }
+

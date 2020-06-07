@@ -15,7 +15,6 @@ namespace BankView
 {
     static class Program
     {
-        public static WorkerViewModel Worker = null;
         public static bool IsLogined;
         /// <summary>
         /// Главная точка входа для приложения.

@@ -107,7 +107,6 @@ namespace BankView
                     var servi = logicS.Read(null);
                     foreach (var serv in servi)
                     {
-                        
                         if (serv.WorkerId == id)
                         {
                             client++;
