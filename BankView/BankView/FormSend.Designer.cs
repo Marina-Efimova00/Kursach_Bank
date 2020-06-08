@@ -37,6 +37,7 @@
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.buttonSend = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonEmail = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -100,7 +101,6 @@
             this.comboBoxFIO.Name = "comboBoxFIO";
             this.comboBoxFIO.Size = new System.Drawing.Size(351, 24);
             this.comboBoxFIO.TabIndex = 14;
-            this.comboBoxFIO.SelectedIndexChanged += new System.EventHandler(this.comboBoxFIO_SelectedIndexChanged);
             // 
             // textBoxMail
             // 
@@ -129,11 +129,22 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
+            // buttonEmail
+            // 
+            this.buttonEmail.Location = new System.Drawing.Point(30, 110);
+            this.buttonEmail.Name = "buttonEmail";
+            this.buttonEmail.Size = new System.Drawing.Size(182, 39);
+            this.buttonEmail.TabIndex = 18;
+            this.buttonEmail.Text = "Получить Email";
+            this.buttonEmail.UseVisualStyleBackColor = true;
+            this.buttonEmail.Click += new System.EventHandler(this.buttonEmail_Click);
+            // 
             // FormSend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 172);
+            this.Controls.Add(this.buttonEmail);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.textBoxMail);
@@ -162,5 +173,6 @@
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.Button buttonSend;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button buttonEmail;
     }
 }

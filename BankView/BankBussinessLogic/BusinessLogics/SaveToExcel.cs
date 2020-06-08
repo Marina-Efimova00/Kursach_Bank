@@ -52,7 +52,7 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                 {
                     Worksheet = worksheetPart.Worksheet,
                     CellFromName = "A1",
-                    CellToName = "C1"
+                    CellToName = "F1"
                 });
                 InsertCellInWorksheet(new ExcelCellParameters
                 {
@@ -63,20 +63,32 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                     Text = "ФИО сотрудника",
                     StyleIndex = 0U
                 });
-                InsertCellInWorksheet(new ExcelCellParameters
+                MergeCells(new ExcelMergeParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
-                    ShareStringPart = shareStringPart,
-                    ColumnName = "B",
-                    RowIndex = 2,
-                    Text = "Название услуги",
-                    StyleIndex = 0U
+                    CellFromName = "A2",
+                    CellToName = "C2"
                 });
                 InsertCellInWorksheet(new ExcelCellParameters
                 {
                     Worksheet = worksheetPart.Worksheet,
                     ShareStringPart = shareStringPart,
-                    ColumnName = "C",
+                    ColumnName = "D",
+                    RowIndex = 2,
+                    Text = "Название услуги",
+                    StyleIndex = 0U
+                });
+                MergeCells(new ExcelMergeParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    CellFromName = "D2",
+                    CellToName = "E2"
+                });
+                InsertCellInWorksheet(new ExcelCellParameters
+                {
+                    Worksheet = worksheetPart.Worksheet,
+                    ShareStringPart = shareStringPart,
+                    ColumnName = "F",
                     RowIndex = 2,
                     Text = "Статус",
                     StyleIndex = 0U
@@ -97,7 +109,7 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
-                        ColumnName = "B",
+                        ColumnName = "D",
                         RowIndex = rowIndex + 2,
                         Text = sr.TypeService,
                         StyleIndex = 0U
@@ -106,7 +118,7 @@ spreadsheetDocument.WorkbookPart.Workbook.AppendChild<Sheets>(new Sheets());
                     {
                         Worksheet = worksheetPart.Worksheet,
                         ShareStringPart = shareStringPart,
-                        ColumnName = "C",
+                        ColumnName = "F",
                         RowIndex = rowIndex + 2,
                         Text = sr.Status.ToString(),
                         StyleIndex = 0U

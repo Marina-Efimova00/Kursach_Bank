@@ -51,11 +51,11 @@ namespace BankBussinessLogic.BusinessLogics
                 foreach (var service in info.Services)
                 {
                     TableRow tourRow = new TableRow();
-                    TableCell nameCell = new TableCell(new Paragraph(new Run(new Text(service.TypeService))));
                     TableCell fioCell = new TableCell(new Paragraph(new Run(new Text(service.WorkerFIO))));
+                    TableCell nameCell = new TableCell(new Paragraph(new Run(new Text(service.TypeService))));
                     TableCell statusCell = new TableCell(new Paragraph(new Run(new Text(service.Status.ToString()))));
-                    tourRow.Append(nameCell);
                     tourRow.Append(fioCell);
+                    tourRow.Append(nameCell);
                     tourRow.Append(statusCell);
                     table.Append(tourRow);
                     i++;

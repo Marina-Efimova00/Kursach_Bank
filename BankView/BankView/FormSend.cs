@@ -40,22 +40,20 @@ namespace BankView
             }
             try
             {
-                var service = logic.Read(null);
+                int id = Convert.ToInt32(comboBoxFIO.SelectedValue);
+                var service = logic.Read(new ServiceBindingModel { WorkerId = id });
                 if (checkBoxDoc.Checked)
                 {
-                    foreach (var elem in service)
-                    {
+
                         string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Отчет по выплненным услугам.docx";
-                        reportLogic.SaveServicesToWordFile(fileName, elem, textBoxMail.ToString());
-                    }
+                        reportLogic.SaveServicesToWordFile(fileName, id, textBoxMail.ToString());
+
                 }
                 if (checkBoxXls.Checked)
                 {
-                    foreach (var elem in service)
-                    {
-                        string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Worker.xls";
-                        reportLogic.SaveServicesToExcelFile(fileName, elem, textBoxMail.ToString());
-                    }
+                        string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Worker.xlsx";
+                        reportLogic.SaveServicesToExcelFile(fileName, id, textBoxMail.ToString());
+
                 }
 
                     MessageBox.Show("Отправлено", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,7 +80,7 @@ namespace BankView
                 var list = logicW.Read(null);
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
-                comboBoxFIO.ValueMember = "Email";
+                comboBoxFIO.ValueMember = "Id";
                 comboBoxFIO.SelectedItem = null;
                 
             }
@@ -93,10 +91,17 @@ namespace BankView
             }
         }
 
-        private void comboBoxFIO_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonEmail_Click(object sender, EventArgs e)
         {
-            if(comboBoxFIO.SelectedValue != null)
-             textBoxMail.Text = comboBoxFIO.SelectedValue.ToString();
+            int id = Convert.ToInt32(comboBoxFIO.SelectedValue);
+            var servi = logicW.Read(null);
+            foreach (var serv in servi)
+            {
+                if (serv.Id == id)
+                {
+                    textBoxMail.Text = serv.Email;
+                }
+            }
         }
     }
 }

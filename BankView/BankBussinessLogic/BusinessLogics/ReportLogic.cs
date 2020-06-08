@@ -40,25 +40,48 @@ namespace BankBussinessLogic.BusinessLogics
             }
             return list;
         }
-        public void SaveServicesToExcelFile(string fileName, ServiceViewModel service, string email)
+        public List<ServiceViewModel> GetServices(int id)
+        {
+            var services = serviceLogic.Read(null);
+            var list = new List<ServiceViewModel>();
+            foreach (var serv in services)
+            {
+                if (serv.WorkerId == id)
+                {
+                    if (serv.Status == Status.Готово)
+                    {
+                        var record = new ServiceViewModel
+                        {
+                            WorkerFIO = serv.WorkerFIO,
+                            TypeService = serv.TypeService,
+                            Status = serv.Status
+                        };
+
+                        list.Add(record);
+                    }
+                }
+            }
+            return list;
+        }
+        public void SaveServicesToExcelFile(string fileName,int id, string email)
         {
             string title = "Выполненные услуги";
             SaveToExcel.CreateDoc(new ExcelInfo
             {
                 FileName = fileName,
                 Title = title,
-                Services = GetServices(),
+                Services = GetServices(id),
             });
             SendMail(email, fileName, title);
         }
-        public void SaveServicesToWordFile(string fileName,ServiceViewModel service, string email)
+        public void SaveServicesToWordFile(string fileName,int id, string email)
         {
             string title = "Выполненные услуги" ;
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = fileName,
                 Title = title,
-                Services = GetServices(),
+                Services = GetServices(id),
             });
             SendMail(email, fileName, title);
         }
