@@ -12,6 +12,7 @@ namespace BankDatabaseImplement.Model
         public int Id { get; set; }
         [Required]
         public string WorkerFIO { get; set; }
+        public string Email { get; set; }
         public int Salary { get; set; }
         [ForeignKey("WorkerId")]
         public virtual List<Service> Services { get; set; }

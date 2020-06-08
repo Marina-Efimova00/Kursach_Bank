@@ -42,18 +42,18 @@ namespace BankBussinessLogic.BusinessLogics
         }
         public void SaveServicesToExcelFile(string fileName, ServiceViewModel service, string email)
         {
-            string title = "Выполненые услуги";
+            string title = "Выполненные услуги";
             SaveToExcel.CreateDoc(new ExcelInfo
             {
                 FileName = fileName,
                 Title = title,
                 Services = GetServices(),
-            }) ;
+            });
             SendMail(email, fileName, title);
         }
         public void SaveServicesToWordFile(string fileName,ServiceViewModel service, string email)
         {
-            string title = "Выполненые услуги" ;
+            string title = "Выполненные услуги" ;
             SaveToWord.CreateDoc(new WordInfo
             {
                 FileName = fileName,
@@ -64,7 +64,7 @@ namespace BankBussinessLogic.BusinessLogics
         }
         public void SendMail(string email, string fileName, string subject)
         {
-            MailAddress from = new MailAddress("efimova.marina0029@gmail.com", "Туристическая фирма «Иван Сусанин»");
+            MailAddress from = new MailAddress("efimova.marina0029@gmail.com", "Банк «Вы банкрот»");
             MailAddress to = new MailAddress(email);
             MailMessage m = new MailMessage(from, to);
             m.Subject = subject;

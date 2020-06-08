@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BankBussinessLogic.HelperInfo
 {
-    class WordInfo
+    public class WordInfo
     {
         public string FileName { get; set; }
         public string Title { get; set; }

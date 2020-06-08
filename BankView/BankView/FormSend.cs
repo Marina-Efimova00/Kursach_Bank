@@ -17,12 +17,14 @@ namespace BankView
     public partial class FormSend : Form
     {
         public readonly IServiceLogic logic;
+        public readonly IWorkerLogic logicW;
         public readonly ReportLogic reportLogic;
-        public FormSend(IServiceLogic logic, ReportLogic reportLogic)
+        public FormSend(IServiceLogic logic, ReportLogic reportLogic, IWorkerLogic logicW)
         {
             InitializeComponent();
             this.logic = logic;
             this.reportLogic = reportLogic;
+            this.logicW = logicW;
         }
         private void buttonSend_Click(object sender, EventArgs e)
         {
@@ -39,17 +41,62 @@ namespace BankView
             try
             {
                 var service = logic.Read(null);
-                foreach (var elem in service)
+                if (checkBoxDoc.Checked)
                 {
-                    string fileName = "С://data//" + "Worker.docx";
-                    reportLogic.SaveServicesToWordFile(fileName, elem, textBoxMail.ToString());
+                    foreach (var elem in service)
+                    {
+                        string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Отчет по выплненным услугам.docx";
+                        reportLogic.SaveServicesToWordFile(fileName, elem, textBoxMail.ToString());
+                    }
                 }
+                if (checkBoxXls.Checked)
+                {
+                    foreach (var elem in service)
+                    {
+                        string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Worker.xls";
+                        reportLogic.SaveServicesToExcelFile(fileName, elem, textBoxMail.ToString());
+                    }
+                }
+
+                    MessageBox.Show("Отправлено", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void FormSend_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                
+                var list = logicW.Read(null);
+                comboBoxFIO.DataSource = list;
+                comboBoxFIO.DisplayMember = "WorkerFIO";
+                comboBoxFIO.ValueMember = "Email";
+                comboBoxFIO.SelectedItem = null;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+            }
+        }
+
+        private void comboBoxFIO_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBoxFIO.SelectedValue != null)
+             textBoxMail.Text = comboBoxFIO.SelectedValue.ToString();
         }
     }
 }

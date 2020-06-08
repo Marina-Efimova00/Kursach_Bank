@@ -100,6 +100,7 @@
             this.comboBoxFIO.Name = "comboBoxFIO";
             this.comboBoxFIO.Size = new System.Drawing.Size(351, 24);
             this.comboBoxFIO.TabIndex = 14;
+            this.comboBoxFIO.SelectedIndexChanged += new System.EventHandler(this.comboBoxFIO_SelectedIndexChanged);
             // 
             // textBoxMail
             // 
@@ -126,6 +127,7 @@
             this.buttonCancel.TabIndex = 17;
             this.buttonCancel.Text = "Отмена";
             this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // FormSend
             // 
@@ -141,6 +143,7 @@
             this.Controls.Add(this.label1);
             this.Name = "FormSend";
             this.Text = "FormSend";
+            this.Load += new System.EventHandler(this.FormSend_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.ResumeLayout(false);

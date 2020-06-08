@@ -30,6 +30,7 @@ namespace BankDatabaseImplement.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     WorkerFIO = table.Column<string>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
                     Salary = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -43,7 +44,7 @@ namespace BankDatabaseImplement.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    WorkerId = table.Column<int>(nullable: true),
+                    WorkerId = table.Column<int>(nullable: false),
                     TypeService = table.Column<string>(nullable: false),
                     Status = table.Column<int>(nullable: false)
                 },
@@ -55,7 +56,7 @@ namespace BankDatabaseImplement.Migrations
                         column: x => x.WorkerId,
                         principalTable: "Workers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(

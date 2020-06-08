@@ -12,8 +12,7 @@ namespace BankBussinessLogic.BusinessLogics
     {
         public static void CreateDoc(WordInfo info)
         {
-            using (WordprocessingDocument wordDocument =
-           WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
+            using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(info.FileName, WordprocessingDocumentType.Document))
             {
                 MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
                 mainPart.Document = new Document();
@@ -41,28 +40,20 @@ namespace BankBussinessLogic.BusinessLogics
                 );
                 table.AppendChild<TableProperties>(tblProp);
                 TableRow headerRow = new TableRow();
-                TableCell headerNumberCell = new TableCell(new Paragraph(new Run(new Text("№"))));
-                TableCell headerNameCell = new TableCell(new Paragraph(new Run(new Text("Название"))));
-                TableCell headerCountryCell = new TableCell(new Paragraph(new Run(new Text("Страна"))));
-                TableCell headerTOACell = new TableCell(new Paragraph(new Run(new Text("Тип размещения"))));
-                TableCell headerDurationCell = new TableCell(new Paragraph(new Run(new Text("Длительность"))));
-                TableCell headerCostCell = new TableCell(new Paragraph(new Run(new Text("Цена"))));
-                headerRow.Append(headerNumberCell);
-                headerRow.Append(headerNameCell);
-                headerRow.Append(headerCountryCell);
-                headerRow.Append(headerTOACell);
-                headerRow.Append(headerDurationCell);
-                headerRow.Append(headerCostCell);
+                TableCell headerFIOCell = new TableCell(new Paragraph(new Run(new Text("ФИО сотрудника"))));
+                TableCell headerNameSerCell = new TableCell(new Paragraph(new Run(new Text("Тип услуги"))));
+                TableCell headerStatusCell = new TableCell(new Paragraph(new Run(new Text("Статус"))));
+                headerRow.Append(headerFIOCell);
+                headerRow.Append(headerNameSerCell);
+                headerRow.Append(headerStatusCell);
                 table.Append(headerRow);
                 int i = 1;
                 foreach (var service in info.Services)
                 {
                     TableRow tourRow = new TableRow();
-                    TableCell numberCell = new TableCell(new Paragraph(new Run(new Text(i.ToString()))));
                     TableCell nameCell = new TableCell(new Paragraph(new Run(new Text(service.TypeService))));
                     TableCell fioCell = new TableCell(new Paragraph(new Run(new Text(service.WorkerFIO))));
                     TableCell statusCell = new TableCell(new Paragraph(new Run(new Text(service.Status.ToString()))));
-                    tourRow.Append(numberCell);
                     tourRow.Append(nameCell);
                     tourRow.Append(fioCell);
                     tourRow.Append(statusCell);

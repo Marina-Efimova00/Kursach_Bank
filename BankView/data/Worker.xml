@@ -2,11 +2,14 @@
 <Workers>
   <Worker Id="1">
     <WorkerFIO>Иванов Иван Иванович</WorkerFIO>
+    <Email>marina.efimova.00@bk.ru</Email>
   </Worker>
   <Worker Id="2">
     <WorkerFIO>Ефимова Марина Михайловна</WorkerFIO>
+    <Email>efimova.marina0029@gmail.com</Email>
   </Worker>
 <Worker Id="3">
     <WorkerFIO>Марина Михайловна</WorkerFIO>
+    <Email>0512masha@gmail.com</Email>
   </Worker>
 </Workers>

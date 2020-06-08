@@ -32,6 +32,7 @@ namespace BankDatabaseImplement.Implements
                     {
                         Id = Convert.ToInt32(elem.Attribute("Id").Value),
                         WorkerFIO = elem.Element("WorkerFIO").Value,
+                        Email = elem.Element("Email").Value,
                     });
                 }
             }
@@ -55,6 +56,7 @@ namespace BankDatabaseImplement.Implements
                         context.Workers.Add(element);
                     }
                     element.WorkerFIO = worker.WorkerFIO;
+                    element.Email = worker.Email;
                     element.Salary = worker.Salary;
                     context.SaveChanges();
                 }
@@ -71,6 +73,7 @@ namespace BankDatabaseImplement.Implements
                 {
                     Id = rec.Id,
                     WorkerFIO = rec.WorkerFIO,
+                    Email = rec.Email,
                     Salary = rec.Salary
                 })
                 .ToList();
