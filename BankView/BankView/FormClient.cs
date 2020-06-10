@@ -84,6 +84,13 @@ namespace BankView
             }
             try
             {
+                Random rnd = new Random();
+                var list = new List<ServiceClientBindingModel>();
+                int count = Convert.ToInt32(textBoxCount.Text);
+                for(int i = 0; i < count; i++)
+                {
+                    list.Add(new ServiceClientBindingModel { ClientId = id, ServiceId = rnd.Next(1, 10) });
+                }
                 logic.CreateOrUpdate(new ClientBindingModel
                 {
                     Id = id,
@@ -91,7 +98,9 @@ namespace BankView
                     Gender = textBoxGender.Text,
                     Job = textBoxJob.Text,
                     PassportData = Convert.ToInt32(textBoxPassportData.Text),
-                    Number = Convert.ToInt32(textBoxNumber.Text)
+                    Number = Convert.ToInt32(textBoxNumber.Text),
+                    CountService = Convert.ToInt32(textBoxCount.Text),
+                    ServiceClients = list
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);

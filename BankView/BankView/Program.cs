@@ -23,7 +23,7 @@ namespace BankView
         static void Main()
         {
             WorkerLogic logic= new WorkerLogic();
-            logic.SaveToDatabase();;
+            logic.SaveToDatabase();
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

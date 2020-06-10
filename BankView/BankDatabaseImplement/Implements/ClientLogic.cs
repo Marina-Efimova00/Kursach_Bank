@@ -38,9 +38,27 @@ namespace BankDatabaseImplement.Implements
                 element.Gender = model.Gender;
                 element.Job = model.Job;
                 element.Number = model.Number;
+                element.CountService = model.CountService;
                 context.SaveChanges();
+                var groupServices = model.ServiceClients
+                               .GroupBy(rec => rec.ServiceId)
+                               .Select(rec => new
+                               {
+                                   ServiceId = rec.Key,
+                               });
+
+                foreach (var groupTour in groupServices)
+                {
+                    context.ServiceClients.Add(new ServiceClient
+                    {
+                        ClientId = element.Id,
+                        ServiceId = groupTour.ServiceId,
+                    });
+                    context.SaveChanges();
+                }
             }
         }
+
         public void Delete(ClientBindingModel model)
         {
             using (var context = new BankDatabase())

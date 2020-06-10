@@ -20,6 +20,7 @@ namespace BankDatabaseImplement.Model
         public string Job { get; set; }
         [Required]
         public int Number { get; set; }
+        public int CountService { get; set; }
         [ForeignKey("ClientId")]
         public List<ServiceClient> ServiceClients { get; set; }
     }

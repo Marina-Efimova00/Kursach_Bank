@@ -40,6 +40,7 @@
             this.textBoxNumber = new System.Windows.Forms.TextBox();
             this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
+            this.textBoxCount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -124,7 +125,7 @@
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(348, 209);
+            this.buttonSave.Location = new System.Drawing.Point(359, 262);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(180, 37);
             this.buttonSave.TabIndex = 10;
@@ -134,7 +135,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(562, 209);
+            this.buttonCancel.Location = new System.Drawing.Point(561, 262);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(180, 37);
             this.buttonCancel.TabIndex = 11;
@@ -142,11 +143,19 @@
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
-            // Client
+            // textBoxCount
+            // 
+            this.textBoxCount.Location = new System.Drawing.Point(199, 206);
+            this.textBoxCount.Name = "textBoxCount";
+            this.textBoxCount.Size = new System.Drawing.Size(542, 22);
+            this.textBoxCount.TabIndex = 12;
+            // 
+            // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 266);
+            this.ClientSize = new System.Drawing.Size(765, 313);
+            this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxNumber);
@@ -159,7 +168,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Client";
+            this.Name = "FormClient";
             this.Text = "Client";
             this.Load += new System.EventHandler(this.Client_Load);
             this.ResumeLayout(false);
@@ -181,5 +190,6 @@
         private System.Windows.Forms.TextBox textBoxNumber;
         private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.TextBox textBoxCount;
     }
 }

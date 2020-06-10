@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankDatabaseImplement.Migrations
 {
     [DbContext(typeof(BankDatabase))]
-    [Migration("20200607215903_Initial")]
-    partial class Initial
+    [Migration("20200610100033_Intial")]
+    partial class Intial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,9 @@ namespace BankDatabaseImplement.Migrations
                     b.Property<string>("ClientFIO")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CountService")
+                        .HasColumnType("int");
 
                     b.Property<string>("Gender")
                         .IsRequired()

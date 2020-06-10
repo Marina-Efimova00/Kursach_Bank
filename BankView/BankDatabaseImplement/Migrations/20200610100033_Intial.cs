@@ -2,7 +2,7 @@
 
 namespace BankDatabaseImplement.Migrations
 {
-    public partial class Initial : Migration
+    public partial class Intial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,8 @@ namespace BankDatabaseImplement.Migrations
                     ClientFIO = table.Column<string>(nullable: false),
                     Gender = table.Column<string>(nullable: false),
                     Job = table.Column<string>(nullable: false),
-                    Number = table.Column<int>(nullable: false)
+                    Number = table.Column<int>(nullable: false),
+                    CountService = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

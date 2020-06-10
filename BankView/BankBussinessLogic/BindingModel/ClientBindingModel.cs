@@ -12,6 +12,7 @@ namespace BankBussinessLogic.BindingModel
         public string Gender { get; set; }
         public string Job { get; set; }
         public int Number { get; set; }
+        public int CountService { get; set; }
         public virtual List<ServiceClientBindingModel> ServiceClients { get; set; }
     }
 }
