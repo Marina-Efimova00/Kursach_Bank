@@ -34,8 +34,9 @@
             this.услугиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетПоВыполненнымУслугамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетПоКлиентамИИхСчетуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьБекапToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,7 +46,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.справочникиToolStripMenuItem,
             this.отчетыToolStripMenuItem,
-            this.расчтеССотрудникамиToolStripMenuItem});
+            this.расчтеССотрудникамиToolStripMenuItem,
+            this.создатьБекапToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(849, 28);
@@ -91,6 +93,13 @@
             this.отчетПоВыполненнымУслугамToolStripMenuItem.Text = "Отчет по выполненным услугам";
             this.отчетПоВыполненнымУслугамToolStripMenuItem.Click += new System.EventHandler(this.отчетПоВыполненнымУслугамToolStripMenuItem_Click);
             // 
+            // отчетПоКлиентамИИхСчетуToolStripMenuItem
+            // 
+            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Name = "отчетПоКлиентамИИхСчетуToolStripMenuItem";
+            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Size = new System.Drawing.Size(317, 26);
+            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Text = "Отчет по клиентам и их счету";
+            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Click += new System.EventHandler(this.отчетПоКлиентамИИхСчетуToolStripMenuItem_Click);
+            // 
             // расчтеССотрудникамиToolStripMenuItem
             // 
             this.расчтеССотрудникамиToolStripMenuItem.Name = "расчтеССотрудникамиToolStripMenuItem";
@@ -98,12 +107,12 @@
             this.расчтеССотрудникамиToolStripMenuItem.Text = "Расчет с сотрудниками";
             this.расчтеССотрудникамиToolStripMenuItem.Click += new System.EventHandler(this.расчтеССотрудникамиToolStripMenuItem_Click);
             // 
-            // отчетПоКлиентамИИхСчетуToolStripMenuItem
+            // создатьБекапToolStripMenuItem
             // 
-            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Name = "отчетПоКлиентамИИхСчетуToolStripMenuItem";
-            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Size = new System.Drawing.Size(317, 26);
-            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Text = "Отчет по клиентам и их счету";
-            this.отчетПоКлиентамИИхСчетуToolStripMenuItem.Click += new System.EventHandler(this.отчетПоКлиентамИИхСчетуToolStripMenuItem_Click);
+            this.создатьБекапToolStripMenuItem.Name = "создатьБекапToolStripMenuItem";
+            this.создатьБекапToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
+            this.создатьБекапToolStripMenuItem.Text = "Создать бекап";
+            this.создатьБекапToolStripMenuItem.Click += new System.EventHandler(this.создатьБекапToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -131,5 +140,6 @@
         private System.Windows.Forms.ToolStripMenuItem услугиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетПоВыполненнымУслугамToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетПоКлиентамИИхСчетуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem создатьБекапToolStripMenuItem;
     }
 }

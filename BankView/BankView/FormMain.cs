@@ -1,8 +1,10 @@
-﻿using System;
+﻿using BankBussinessLogic.BusinessLogics;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,9 +17,11 @@ namespace BankView
     {
         [Dependency]
         public new IUnityContainer Container { get; set; }
-        public FormMain()
+        private readonly BackUpAbstractLogic backUpAbstractLogic;
+        public FormMain(BackUpAbstractLogic backUpAbstractLogic)
         {
             InitializeComponent();
+            this.backUpAbstractLogic = backUpAbstractLogic;
         }
 
         private void клиентыToolStripMenuItem_Click(object sender, EventArgs e)
@@ -49,6 +53,22 @@ namespace BankView
         {
             var form = Container.Resolve<FormReportClient>();
             form.ShowDialog();
+        }
+
+        private void создатьБекапToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\бэкап\\бекап";
+            if (Directory.Exists(fileName))
+            {
+                backUpAbstractLogic.CreateArchive(fileName);
+                //return RedirectToAction("BackUp");
+            }
+            else
+            {
+                DirectoryInfo di = Directory.CreateDirectory(fileName);
+                backUpAbstractLogic.CreateArchive(fileName);
+                //return RedirectToAction("BackUp");
+            }
         }
     }
 }

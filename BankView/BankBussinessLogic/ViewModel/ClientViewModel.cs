@@ -18,6 +18,8 @@ namespace BankBussinessLogic.ViewModel
         public int PassportData { get; set; }
         [DisplayName("Номер телефона")]
         public int Number { get; set; }
+        [DisplayName("Email")]
+        public string Email { get; set; }
         [DisplayName("Количество услуг")]
         public int CountService { get; set; }
         [DisplayName("Счет")]

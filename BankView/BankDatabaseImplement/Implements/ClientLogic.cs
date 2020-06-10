@@ -2,6 +2,7 @@
 using BankBussinessLogic.Interfaces;
 using BankBussinessLogic.ViewModel;
 using BankDatabaseImplement.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ namespace BankDatabaseImplement.Implements
         {
             using (var context = new BankDatabase())
             {
-                Client element = context.Clients.FirstOrDefault(rec => rec.ClientFIO == model.ClientFIO && rec.Id == model.Id && rec.Job == model.Job && rec.Number == model.Number && rec.PassportData == model.PassportData && rec.Gender == model.Gender && rec.Score == model.Score && rec.DateCreate == model.DateCreate && rec.CountService == model.CountService);
+                Client element = context.Clients.FirstOrDefault(rec => rec.ClientFIO == model.ClientFIO && rec.Id == model.Id && rec.Job == model.Job && rec.Number == model.Number && rec.PassportData == model.PassportData && rec.Gender == model.Gender && rec.Score == model.Score && rec.DateCreate == model.DateCreate && rec.CountService == model.CountService && rec.Email == model.Email);
                 if (element != null)
                 {
                     throw new Exception("Уже есть такой клиент");
@@ -38,9 +39,10 @@ namespace BankDatabaseImplement.Implements
                 element.Gender = model.Gender;
                 element.Job = model.Job;
                 element.Number = model.Number;
+                element.Email = model.Email;
                 element.CountService = model.CountService;
                 element.Score = model.Score;
-                element.DateCreate = model.DateCreate;
+                element.DateCreate = DateTime.Now;
                 context.SaveChanges();
                 var groupServices = model.ServiceClients
                                .GroupBy(rec => rec.ServiceId)
@@ -49,12 +51,12 @@ namespace BankDatabaseImplement.Implements
                                    ServiceId = rec.Key,
                                });
 
-                foreach (var groupTour in groupServices)
+                foreach (var groupService in groupServices)
                 {
                     context.ServiceClients.Add(new ServiceClient
                     {
                         ClientId = element.Id,
-                        ServiceId = groupTour.ServiceId,
+                        ServiceId = groupService.ServiceId,
                     });
                     context.SaveChanges();
                 }
@@ -91,6 +93,7 @@ namespace BankDatabaseImplement.Implements
                     Gender = rec.Gender,
                     Job = rec.Job,
                     Number = rec.Number,
+                    Email = rec.Email,
                     CountService = rec.CountService,
                     Score = rec.Score,
                     DateCreate = rec.DateCreate,
@@ -98,5 +101,6 @@ namespace BankDatabaseImplement.Implements
                 .ToList();
             }
         }
+      
     }
 }

@@ -28,6 +28,12 @@ namespace BankView
         }
         private void buttonSend_Click(object sender, EventArgs e)
         {
+            if (comboBoxFIO.SelectedValue == null)
+            {
+                MessageBox.Show("Выберите ФИО сотрудника", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
             if (string.IsNullOrEmpty(textBoxMail.Text))
             {
                 MessageBox.Show("Заполните Email", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -64,7 +70,6 @@ namespace BankView
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -76,13 +81,11 @@ namespace BankView
         {
             try
             {
-                
                 var list = logicW.Read(null);
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
                 comboBoxFIO.ValueMember = "Id";
                 comboBoxFIO.SelectedItem = null;
-                
             }
             catch (Exception ex)
             {

@@ -23,6 +23,9 @@ namespace BankBussinessLogic.ViewModel
         [DataMember]
         [DisplayName("Статус")]
         public Status Status { get; set; }
+        [DataMember]
+        [DisplayName("Стоимость услуги")]
+        public int Cost { get; set; }
         public List<ServiceClientViewModel> ServiceClients { get; set; }
     }
 }

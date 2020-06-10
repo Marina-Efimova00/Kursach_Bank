@@ -39,6 +39,7 @@ namespace BankDatabaseImplement.Implements
                         WorkerId = Convert.ToInt32(elem.Element("WorkerId").Value),
                         TypeService = elem.Element("TypeService").Value,
                         Status = (Status)Enum.Parse(typeof(Status), elem.Element("Status").Value),
+                        Cost = Convert.ToInt32(elem.Element("Cost").Value),
                     });
                 }
             }
@@ -65,6 +66,7 @@ namespace BankDatabaseImplement.Implements
                     element.WorkerId = service.WorkerId;
                     element.TypeService = service.TypeService;
                     element.Status = service.Status;
+                    element.Cost = service.Cost;
                     context.SaveChanges();
                 }
             }
@@ -81,6 +83,7 @@ namespace BankDatabaseImplement.Implements
                     WorkerId = rec.WorkerId,
                     TypeService = rec.TypeService,
                     Status = rec.Status,
+                    Cost = rec.Cost,
                     WorkerFIO = rec.Worker.WorkerFIO
                 })
                 .ToList();

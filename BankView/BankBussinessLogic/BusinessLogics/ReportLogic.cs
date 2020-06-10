@@ -64,17 +64,45 @@ namespace BankBussinessLogic.BusinessLogics
             return list;
         }
         public List<ClientViewModel> GetClients()
+        // public List<IGrouping<DateTime, ClientViewModel>> GetClients(ReportBindingModel model)
+        {
+                  var clients = clientLogic.Read(null);
+                  var list = new List<ClientViewModel>();
+                  foreach (var client in clients)
+                  {
+                      var record = new ClientViewModel
+                      {
+                          ClientFIO = client.ClientFIO,
+                          Score = client.Score
+                      };
+                      list.Add(record);
+                  }
+                  return list;
+           /* var cl = clientLogic.Read(new ClientBindingModel
+            {
+                DateFrom = model.DateFrom,
+                DateTo = model.DateTo
+            })
+            .GroupBy(rec => rec.DateCreate.Date)
+            .OrderBy(recG => recG.Key)
+            .ToList();
+            return cl;*/
+        }
+        public List<ClientViewModel> GetClients(int id)
         {
             var clients = clientLogic.Read(null);
             var list = new List<ClientViewModel>();
             foreach (var client in clients)
             {
+                if (client.Id == id)
+                {
                     var record = new ClientViewModel
                     {
                         ClientFIO = client.ClientFIO,
                         Score = client.Score
                     };
                     list.Add(record);
+                }
             }
             return list;
         }
@@ -102,12 +130,14 @@ namespace BankBussinessLogic.BusinessLogics
         }
         public void SaveClientsToPdfFile(string fileName, int id, string email)
         {
+            string title = "Клиенты и их счета";
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = fileName,
-                Title = "Клиенты и их счета",
-                Clients = GetClients(),
+                Title = title,
+                Clients = GetClients(id),
             });
+            SendMail(email, fileName, title);
         }
         public void SendMail(string email, string fileName, string subject)
         {

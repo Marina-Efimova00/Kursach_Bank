@@ -4,50 +4,60 @@
     <WorkerId>1</WorkerId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>2000</Cost>
   </Service>
   <Service Id="2">
     <WorkerId>1</WorkerId>
     <TypeService>Рассрочка</TypeService>   
     <Status>Готово</Status>
+    <Cost>3000</Cost>
   </Service>
    <Service Id="3">
     <WorkerId>1</WorkerId>
     <TypeService>Вклад</TypeService>   
     <Status>Готово</Status>
+    <Cost>4000</Cost>
    </Service>
    <Service Id="4">
     <WorkerId>2</WorkerId>
     <TypeService>Вклад</TypeService>   
     <Status>Готово</Status>
+    <Cost>1000</Cost>
    </Service>
    <Service Id="5">
     <WorkerId>3</WorkerId>
     <TypeService>Рассрочка</TypeService>   
     <Status>Готово</Status>
+    <Cost>500</Cost>
     </Service>
    <Service Id="6">
     <WorkerId>3</WorkerId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>5000</Cost>
 </Service>
    <Service Id="7">
     <WorkerId>3</WorkerId>
-    <TypeService>Кредит</TypeService>   
+    <TypeService>Рассрочка</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>1500</Cost>
 </Service>
    <Service Id="8">
     <WorkerId>3</WorkerId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>2000</Cost>
 </Service>
    <Service Id="9">
     <WorkerId>3</WorkerId>
-    <TypeService>Кредит</TypeService>   
+    <TypeService>Вклад</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>3000</Cost>
   </Service>
    <Service Id="10">
     <WorkerId>3</WorkerId>
     <TypeService>Кредит</TypeService>   
     <Status>Выполняется</Status>
+    <Cost>3500</Cost>
 </Service>
 </Services>

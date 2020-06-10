@@ -12,6 +12,7 @@ namespace BankBussinessLogic.BindingModel
         public string TypeService { get; set; }
         public int WorkerId { get; set; }
         public Status Status { get; set; }
+        public int Cost { get; set; }
         public List<ServiceClientBindingModel> ServiceClients { get; set; }
     }
 }

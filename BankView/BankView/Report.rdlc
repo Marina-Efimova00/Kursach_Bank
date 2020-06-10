@@ -268,9 +268,9 @@
             </TablixRowHierarchy>
             <DataSetName>DataSetClient</DataSetName>
             <Top>1.38853cm</Top>
-            <Left>1.91911cm</Left>
+            <Left>0.58561cm</Left>
             <Height>2.7305cm</Height>
-            <Width>14.59089cm</Width>
+            <Width>14.59088cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -282,7 +282,7 @@
         <Height>2in</Height>
         <Style />
       </Body>
-      <Width>6.78in</Width>
+      <Width>6.5in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

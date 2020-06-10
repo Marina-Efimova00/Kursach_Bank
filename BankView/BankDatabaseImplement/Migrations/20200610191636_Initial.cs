@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankDatabaseImplement.Migrations
 {
-    public partial class Intial : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,6 +18,7 @@ namespace BankDatabaseImplement.Migrations
                     Gender = table.Column<string>(nullable: false),
                     Job = table.Column<string>(nullable: false),
                     Number = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
                     CountService = table.Column<int>(nullable: false),
                     Score = table.Column<int>(nullable: false),
                     DateCreate = table.Column<DateTime>(nullable: false)
@@ -50,7 +51,8 @@ namespace BankDatabaseImplement.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     WorkerId = table.Column<int>(nullable: false),
                     TypeService = table.Column<string>(nullable: false),
-                    Status = table.Column<int>(nullable: false)
+                    Status = table.Column<int>(nullable: false),
+                    Cost = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -16,6 +16,7 @@ namespace BankDatabaseImplement.Model
         [Required]
         public string TypeService { get; set; }
         public Status Status { get; set; }
+        public int Cost { get; set; }
         public virtual Worker Worker { get; set; }
         public virtual List<ServiceClient> ServiseClients { get; set; }
     }

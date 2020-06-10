@@ -20,6 +20,7 @@ namespace BankDatabaseImplement.Model
         public string Job { get; set; }
         [Required]
         public int Number { get; set; }
+        public string Email { get; set; }
         public int CountService { get; set; }
         public int Score { get; set; }
         public DateTime DateCreate { get; set; }

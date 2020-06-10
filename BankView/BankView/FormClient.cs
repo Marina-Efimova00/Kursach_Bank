@@ -1,5 +1,6 @@
 ﻿using BankBussinessLogic.BindingModel;
 using BankBussinessLogic.Interfaces;
+using Microsoft.EntityFrameworkCore.Internal;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -93,9 +94,19 @@ namespace BankView
                 Random rnd = new Random();
                 var list = new List<ServiceClientBindingModel>();
                 int count = Convert.ToInt32(textBoxCount.Text);
+                var lis = new List<int>() { 1,2,3,4,5,6,7,8,9,10 };
                 for(int i = 0; i < count; i++)
                 {
-                    list.Add(new ServiceClientBindingModel { ClientId = id, ServiceId = rnd.Next(1, 10) });
+                    if (!lis.Any())
+                    {
+                        MessageBox.Show("Закончились услуги", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                        break;
+                    }
+                    int temp = lis[rnd.Next(0, lis.Count)];
+                    list.Add(new ServiceClientBindingModel { ClientId = id, ServiceId = temp });
+                    lis.Remove(temp);
+                    
                 }
                 logic.CreateOrUpdate(new ClientBindingModel
                 {
@@ -105,6 +116,7 @@ namespace BankView
                     Job = textBoxJob.Text,
                     PassportData = Convert.ToInt32(textBoxPassportData.Text),
                     Number = Convert.ToInt32(textBoxNumber.Text),
+                    Email = textBoxEmail.Text,
                     CountService = Convert.ToInt32(textBoxCount.Text),
                     ServiceClients = list
                 });
