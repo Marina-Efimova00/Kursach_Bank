@@ -15,7 +15,7 @@ namespace BankDatabaseImplement.Implements
         {
             using (var context = new BankDatabase())
             {
-                Client element = context.Clients.FirstOrDefault(rec => rec.ClientFIO == model.ClientFIO && rec.Id == model.Id && rec.Job == model.Job && rec.Number == model.Number && rec.PassportData == model.PassportData && rec.Gender == model.Gender);
+                Client element = context.Clients.FirstOrDefault(rec => rec.ClientFIO == model.ClientFIO && rec.Id == model.Id && rec.Job == model.Job && rec.Number == model.Number && rec.PassportData == model.PassportData && rec.Gender == model.Gender && rec.Score == model.Score && rec.DateCreate == model.DateCreate && rec.CountService == model.CountService);
                 if (element != null)
                 {
                     throw new Exception("Уже есть такой клиент");
@@ -39,6 +39,8 @@ namespace BankDatabaseImplement.Implements
                 element.Job = model.Job;
                 element.Number = model.Number;
                 element.CountService = model.CountService;
+                element.Score = model.Score;
+                element.DateCreate = model.DateCreate;
                 context.SaveChanges();
                 var groupServices = model.ServiceClients
                                .GroupBy(rec => rec.ServiceId)
@@ -88,7 +90,10 @@ namespace BankDatabaseImplement.Implements
                     ClientFIO = rec.ClientFIO,
                     Gender = rec.Gender,
                     Job = rec.Job,
-                    Number = rec.Number
+                    Number = rec.Number,
+                    CountService = rec.CountService,
+                    Score = rec.Score,
+                    DateCreate = rec.DateCreate,
                 })
                 .ToList();
             }

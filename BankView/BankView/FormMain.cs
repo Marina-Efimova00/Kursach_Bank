@@ -44,5 +44,11 @@ namespace BankView
             var form = Container.Resolve<FormReportService>();
             form.ShowDialog();
         }
+
+        private void отчетПоКлиентамИИхСчетуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormReportClient>();
+            form.ShowDialog();
+        }
     }
 }

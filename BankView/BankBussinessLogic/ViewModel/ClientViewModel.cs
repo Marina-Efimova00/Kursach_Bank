@@ -20,6 +20,10 @@ namespace BankBussinessLogic.ViewModel
         public int Number { get; set; }
         [DisplayName("Количество услуг")]
         public int CountService { get; set; }
+        [DisplayName("Счет")]
+        public int Score { get; set; }
+        [DisplayName("Дата обращения")]
+        public DateTime DateCreate { get; set; }
         public virtual List<ServiceClientViewModel> ServiceClients { get; set; }
     }
 }

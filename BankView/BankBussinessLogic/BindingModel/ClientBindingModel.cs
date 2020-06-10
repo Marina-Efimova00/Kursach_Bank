@@ -13,6 +13,8 @@ namespace BankBussinessLogic.BindingModel
         public string Job { get; set; }
         public int Number { get; set; }
         public int CountService { get; set; }
+        public int Score { get; set; }
+        public DateTime DateCreate { get; set; }
         public virtual List<ServiceClientBindingModel> ServiceClients { get; set; }
     }
 }

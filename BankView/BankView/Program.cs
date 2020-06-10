@@ -22,8 +22,10 @@ namespace BankView
         [STAThread]
         static void Main()
         {
+            ServiceLogic logicS = new ServiceLogic();
             WorkerLogic logic= new WorkerLogic();
             logic.SaveToDatabase();
+            logicS.SaveToDatabase();
             var container = BuildUnityContainer();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankDatabaseImplement.Migrations
 {
@@ -17,7 +18,9 @@ namespace BankDatabaseImplement.Migrations
                     Gender = table.Column<string>(nullable: false),
                     Job = table.Column<string>(nullable: false),
                     Number = table.Column<int>(nullable: false),
-                    CountService = table.Column<int>(nullable: false)
+                    CountService = table.Column<int>(nullable: false),
+                    Score = table.Column<int>(nullable: false),
+                    DateCreate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

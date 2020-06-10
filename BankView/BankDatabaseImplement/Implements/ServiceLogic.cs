@@ -73,7 +73,6 @@ namespace BankDatabaseImplement.Implements
         {
             using (var context = new BankDatabase())
             {
-                SaveToDatabase();
                 return context.Services
                .Where(rec => model == null || rec.Id == model.Id)
                 .Select(rec => new ServiceViewModel

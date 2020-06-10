@@ -82,6 +82,12 @@ namespace BankView
                MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(textBoxCount.Text))
+            {
+                MessageBox.Show("Заполните номер количество услуг", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 Random rnd = new Random();

@@ -15,11 +15,11 @@ namespace BankBussinessLogic.BusinessLogics
     public class ReportLogic
     {
         private readonly IServiceLogic serviceLogic;
-        private readonly IWorkerLogic workerLogic;
-        public ReportLogic(IServiceLogic serviceLogic, IWorkerLogic workerLogic)
+        private readonly IClientLogic clientLogic;
+        public ReportLogic(IServiceLogic serviceLogic, IClientLogic clientLogic)
         {
             this.serviceLogic = serviceLogic;
-            this.workerLogic = workerLogic;
+            this.clientLogic = clientLogic;
         }
         public List<ServiceViewModel> GetServices()
         {
@@ -63,6 +63,21 @@ namespace BankBussinessLogic.BusinessLogics
             }
             return list;
         }
+        public List<ClientViewModel> GetClients()
+        {
+            var clients = clientLogic.Read(null);
+            var list = new List<ClientViewModel>();
+            foreach (var client in clients)
+            {
+                    var record = new ClientViewModel
+                    {
+                        ClientFIO = client.ClientFIO,
+                        Score = client.Score
+                    };
+                    list.Add(record);
+            }
+            return list;
+        }
         public void SaveServicesToExcelFile(string fileName,int id, string email)
         {
             string title = "Выполненные услуги";
@@ -84,6 +99,15 @@ namespace BankBussinessLogic.BusinessLogics
                 Services = GetServices(id),
             });
             SendMail(email, fileName, title);
+        }
+        public void SaveClientsToPdfFile(string fileName, int id, string email)
+        {
+            SaveToPdf.CreateDoc(new PdfInfo
+            {
+                FileName = fileName,
+                Title = "Клиенты и их счета",
+                Clients = GetClients(),
+            });
         }
         public void SendMail(string email, string fileName, string subject)
         {
