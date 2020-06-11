@@ -63,18 +63,24 @@ namespace BankBussinessLogic.BusinessLogics
             }
             return list;
         }
-         public List<IGrouping<DateTime, ClientViewModel>> GetClients(ReportBindingModel model)
+         public List<ClientViewModel> GetClients(ReportBindingModel model)
         {
-             
-            var cl = clientLogic.Read(new ClientBindingModel
+            var clients = clientLogic.Read(new ClientBindingModel
             {
                 DateFrom = model.DateFrom,
                 DateTo = model.DateTo
-            })
-            .GroupBy(rec => rec.DateCreate.Date)
-            .OrderBy(recG => recG.Key)
-            .ToList();
-            return cl;
+            });
+            var list = new List<ClientViewModel>();
+            foreach (var client in clients)
+            {
+                var record = new ClientViewModel
+                {
+                    ClientFIO = client.ClientFIO,
+                    Score = client.Score
+                };
+                list.Add(record);
+            }
+            return list;
         }
         public List<ClientViewModel> GetClients(int id)
         {
@@ -118,7 +124,7 @@ namespace BankBussinessLogic.BusinessLogics
         }
         public void SaveClientsToPdfFile(string fileName, int id, string email)
         {
-            string title = "Клиенты и их счета";
+            string title = "Клиенты и их счет";
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = fileName,

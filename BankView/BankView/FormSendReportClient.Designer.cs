@@ -40,22 +40,22 @@
             // comboBoxFIO
             // 
             this.comboBoxFIO.FormattingEnabled = true;
-            this.comboBoxFIO.Location = new System.Drawing.Point(180, 21);
+            this.comboBoxFIO.Location = new System.Drawing.Point(169, 31);
             this.comboBoxFIO.Name = "comboBoxFIO";
             this.comboBoxFIO.Size = new System.Drawing.Size(481, 24);
             this.comboBoxFIO.TabIndex = 0;
             // 
             // textBoxMail
             // 
-            this.textBoxMail.Location = new System.Drawing.Point(177, 85);
+            this.textBoxMail.Location = new System.Drawing.Point(169, 87);
             this.textBoxMail.Name = "textBoxMail";
-            this.textBoxMail.Size = new System.Drawing.Size(483, 22);
+            this.textBoxMail.Size = new System.Drawing.Size(481, 22);
             this.textBoxMail.TabIndex = 1;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 23);
+            this.label1.Location = new System.Drawing.Point(25, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 2;
@@ -64,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 88);
+            this.label2.Location = new System.Drawing.Point(25, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 17);
             this.label2.TabIndex = 3;
@@ -72,7 +72,7 @@
             // 
             // buttonEmail
             // 
-            this.buttonEmail.Location = new System.Drawing.Point(28, 139);
+            this.buttonEmail.Location = new System.Drawing.Point(28, 138);
             this.buttonEmail.Name = "buttonEmail";
             this.buttonEmail.Size = new System.Drawing.Size(183, 42);
             this.buttonEmail.TabIndex = 4;
@@ -82,7 +82,7 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(252, 139);
+            this.buttonSend.Location = new System.Drawing.Point(246, 138);
             this.buttonSend.Name = "buttonSend";
             this.buttonSend.Size = new System.Drawing.Size(183, 42);
             this.buttonSend.TabIndex = 5;
@@ -92,7 +92,7 @@
             // 
             // buttonCancel
             // 
-            this.buttonCancel.Location = new System.Drawing.Point(478, 139);
+            this.buttonCancel.Location = new System.Drawing.Point(467, 138);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(183, 42);
             this.buttonCancel.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(689, 209);
+            this.ClientSize = new System.Drawing.Size(682, 199);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.buttonEmail);

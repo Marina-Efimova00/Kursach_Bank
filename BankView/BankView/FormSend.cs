@@ -52,13 +52,13 @@ namespace BankView
                 {
 
                         string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Отчет по выплненным услугам.docx";
-                        reportLogic.SaveServicesToWordFile(fileName, id, textBoxMail.ToString());
+                        reportLogic.SaveServicesToWordFile(fileName, id, textBoxMail.Text);
 
                 }
                 if (checkBoxXls.Checked)
                 {
                         string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\data\\" + "Worker.xlsx";
-                        reportLogic.SaveServicesToExcelFile(fileName, id, textBoxMail.ToString());
+                        reportLogic.SaveServicesToExcelFile(fileName, id, textBoxMail.Text);
 
                 }
 

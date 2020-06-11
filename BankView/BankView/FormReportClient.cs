@@ -25,19 +25,19 @@ namespace BankView
             InitializeComponent();
             this.logic = logic;
         }
-
-        private void FormReportClient_Load(object sender, EventArgs e)
-        {
-            
-        }
         public void LoadData()
         {
+            if (dateTimePickerFrom.Value.Date >= dateTimePickerTo.Value.Date)
+            {
+                MessageBox.Show("Дата начала должна быть меньше даты окончания", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-                    var dataSource = logic.GetClients(new ReportBindingModel { DateFrom = dateTimePickerFrom.Value.Date, DateTo = dateTimePickerTo.Value.Date });
-                    ReportDataSource source = new ReportDataSource("DataSetClient", dataSource);
-                    reportViewer.LocalReport.DataSources.Add(source);
-                    reportViewer.RefreshReport();
+                var dataSource = logic.GetClients(new ReportBindingModel { DateFrom = dateTimePickerFrom.Value.Date, DateTo = dateTimePickerTo.Value.Date });
+                ReportDataSource source = new ReportDataSource("DataSetClient", dataSource);
+                reportViewer.LocalReport.DataSources.Add(source);
+                reportViewer.RefreshReport();
             }
             catch (Exception ex)
             {

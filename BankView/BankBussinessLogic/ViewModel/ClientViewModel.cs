@@ -26,6 +26,6 @@ namespace BankBussinessLogic.ViewModel
         public int Score { get; set; }
         [DisplayName("Дата обращения")]
         public DateTime DateCreate { get; set; }
-        public virtual List<ServiceClientViewModel> ServiceClients { get; set; }
+        public Dictionary<int, (string, int)> ServiceClients { get; set; }
     }
 }

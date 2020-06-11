@@ -31,11 +31,11 @@ namespace BankView
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             var login = new FormAvtorizatsiya();
-            //login.ShowDialog();
-            //if (IsLogined)
-            //{
+            login.ShowDialog();
+            if (IsLogined)
+            {
                 Application.Run(container.Resolve<FormMain>());
-            //}
+            }
         }
         private static IUnityContainer BuildUnityContainer()
         {
