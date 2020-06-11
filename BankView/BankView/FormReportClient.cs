@@ -34,7 +34,7 @@ namespace BankView
         {
             try
             {
-                var dataSource = logic.GetClients();
+                    var dataSource = logic.GetClients(new ReportBindingModel { DateFrom = dateTimePickerFrom.Value.Date, DateTo = dateTimePickerTo.Value.Date });
                     ReportDataSource source = new ReportDataSource("DataSetClient", dataSource);
                     reportViewer.LocalReport.DataSources.Add(source);
                     reportViewer.RefreshReport();

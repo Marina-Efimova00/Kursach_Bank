@@ -20,11 +20,13 @@ namespace BankView
         public new IUnityContainer Container { get; set; }
         public int Id { set { id = value; } }
         private readonly IClientLogic logic;
+        private readonly IServiceLogic serviceLogic;
         private int? id;
-        public FormClient(IClientLogic logic)
+        public FormClient(IClientLogic logic, IServiceLogic serviceLogic)
         {
             InitializeComponent();
             this.logic = logic;
+            this.serviceLogic = serviceLogic;
         }
 
         private void Client_Load(object sender, EventArgs e)
@@ -41,6 +43,8 @@ namespace BankView
                         textBoxJob.Text = view.Job;
                         textBoxPassportData.Text = view.PassportData.ToString();
                         textBoxNumber.Text = view.Number.ToString();
+                        textBoxCount.Text = view.CountService.ToString();
+                        textBoxEmail.Text = view.Email;
                     }
                 }
                 catch (Exception ex)
@@ -49,6 +53,19 @@ namespace BankView
                    MessageBoxIcon.Error);
                 }
             }
+        }
+        public int CalculateSum(List<ServiceClientBindingModel> travelTours)
+        {
+            int sum = 0;
+            foreach (var serv in travelTours)
+            {
+                var tourData = serviceLogic.Read(new ServiceBindingModel { Id = serv.ServiceId }).FirstOrDefault();
+                if (tourData != null)
+                {
+                    sum += tourData.Cost;
+                }
+            }
+            return sum;
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -85,29 +102,36 @@ namespace BankView
             }
             if (string.IsNullOrEmpty(textBoxCount.Text))
             {
-                MessageBox.Show("Заполните номер количество услуг", "Ошибка", MessageBoxButtons.OK,
+                MessageBox.Show("Заполните количество услуг", "Ошибка", MessageBoxButtons.OK,
                MessageBoxIcon.Error);
                 return;
             }
+            if (string.IsNullOrEmpty(textBoxCount.Text))
+            {
+                MessageBox.Show("Заполните Email", "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
+                return;
+            }
+
+            Random rnd = new Random();
+            var list = new List<ServiceClientBindingModel>();
+            int count = Convert.ToInt32(textBoxCount.Text);
+            var lis = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            for (int i = 0; i < count; i++)
+            {
+                if (!lis.Any())
+                {
+                    MessageBox.Show("Недостаточно услуг", "Ошибка", MessageBoxButtons.OK,
+           MessageBoxIcon.Error);
+                    break;
+                }
+                int temp = lis[rnd.Next(0, lis.Count)];
+                list.Add(new ServiceClientBindingModel { ClientId = id, ServiceId = temp });
+                lis.Remove(temp);
+
+            }
             try
             {
-                Random rnd = new Random();
-                var list = new List<ServiceClientBindingModel>();
-                int count = Convert.ToInt32(textBoxCount.Text);
-                var lis = new List<int>() { 1,2,3,4,5,6,7,8,9,10 };
-                for(int i = 0; i < count; i++)
-                {
-                    if (!lis.Any())
-                    {
-                        MessageBox.Show("Закончились услуги", "Ошибка", MessageBoxButtons.OK,
-               MessageBoxIcon.Error);
-                        break;
-                    }
-                    int temp = lis[rnd.Next(0, lis.Count)];
-                    list.Add(new ServiceClientBindingModel { ClientId = id, ServiceId = temp });
-                    lis.Remove(temp);
-                    
-                }
                 logic.CreateOrUpdate(new ClientBindingModel
                 {
                     Id = id,
@@ -118,6 +142,7 @@ namespace BankView
                     Number = Convert.ToInt32(textBoxNumber.Text),
                     Email = textBoxEmail.Text,
                     CountService = Convert.ToInt32(textBoxCount.Text),
+                    Score = CalculateSum(list),
                     ServiceClients = list
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",

@@ -153,7 +153,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormSend";
-            this.Text = "FormSend";
+            this.Text = "Отправка отчета сотруднику";
             this.Load += new System.EventHandler(this.FormSend_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();

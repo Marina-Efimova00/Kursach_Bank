@@ -31,12 +31,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.справочникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.клиентыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.услугиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетПоВыполненнымУслугамToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отчетПоКлиентамИИхСчетуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьБекапToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,15 +50,14 @@
             this.создатьБекапToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(849, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(915, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // справочникиToolStripMenuItem
             // 
             this.справочникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.клиентыToolStripMenuItem,
-            this.услугиToolStripMenuItem});
+            this.клиентыToolStripMenuItem});
             this.справочникиToolStripMenuItem.Name = "справочникиToolStripMenuItem";
             this.справочникиToolStripMenuItem.Size = new System.Drawing.Size(117, 24);
             this.справочникиToolStripMenuItem.Text = "Справочники";
@@ -69,13 +68,6 @@
             this.клиентыToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
             this.клиентыToolStripMenuItem.Text = "Клиенты";
             this.клиентыToolStripMenuItem.Click += new System.EventHandler(this.клиентыToolStripMenuItem_Click);
-            // 
-            // услугиToolStripMenuItem
-            // 
-            this.услугиToolStripMenuItem.Name = "услугиToolStripMenuItem";
-            this.услугиToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.услугиToolStripMenuItem.Text = "Услуги";
-            this.услугиToolStripMenuItem.Click += new System.EventHandler(this.услугиToolStripMenuItem_Click);
             // 
             // отчетыToolStripMenuItem
             // 
@@ -114,15 +106,31 @@
             this.создатьБекапToolStripMenuItem.Text = "Создать бекап";
             this.создатьБекапToolStripMenuItem.Click += new System.EventHandler(this.создатьБекапToolStripMenuItem_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Navy;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(378, 196);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(156, 29);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "Вы банкрот";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 261);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackgroundImage = global::BankView.Properties.Resources.bank_ekv;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(915, 440);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
-            this.Text = "FormMain";
+            this.Text = "Банк";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -137,9 +145,9 @@
         private System.Windows.Forms.ToolStripMenuItem клиентыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетыToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem расчтеССотрудникамиToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem услугиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетПоВыполненнымУслугамToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отчетПоКлиентамИИхСчетуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьБекапToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
     }
 }

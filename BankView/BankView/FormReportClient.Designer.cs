@@ -89,7 +89,7 @@
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.reportViewer);
             this.Name = "FormReportClient";
-            this.Text = "FormReportClient";
+            this.Text = "Отчет по клиентам и их счету";
             this.Load += new System.EventHandler(this.FormReportClient_Load);
             this.ResumeLayout(false);
 

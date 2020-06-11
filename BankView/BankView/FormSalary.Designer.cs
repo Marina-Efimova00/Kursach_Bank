@@ -113,7 +113,7 @@
             this.Controls.Add(this.comboBoxFIO);
             this.Controls.Add(this.label1);
             this.Name = "FormSalary";
-            this.Text = "FormSalary";
+            this.Text = "Начислить зарплату";
             this.Load += new System.EventHandler(this.FormSalary_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

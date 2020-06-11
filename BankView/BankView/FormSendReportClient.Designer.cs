@@ -113,7 +113,7 @@
             this.Controls.Add(this.textBoxMail);
             this.Controls.Add(this.comboBoxFIO);
             this.Name = "FormSendReportClient";
-            this.Text = "FormSendReportClient";
+            this.Text = "Отправка отчета клиенту";
             this.Load += new System.EventHandler(this.FormSendReportClient_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

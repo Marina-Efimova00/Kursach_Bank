@@ -39,7 +39,7 @@ namespace BankView
                 var list = logicW.Read(null);
                 comboBoxFIO.DataSource = list;
                 comboBoxFIO.DisplayMember = "WorkerFIO";
-                comboBoxFIO.ValueMember = "Id";  
+                comboBoxFIO.ValueMember = "Id";
                 comboBoxFIO.SelectedItem = null;
             }
             catch (Exception ex)
@@ -62,13 +62,23 @@ namespace BankView
                MessageBoxIcon.Error);
                 return;
             }
+            var work = logicW.Read(null);
+            foreach (var w in work)
+            {
+                if (w.Salary != 0)
+                {
+                    MessageBox.Show("Зарплата уже проставлена", "Ошибка", MessageBoxButtons.OK,
+                  MessageBoxIcon.Error);
+                    return;
+                }
+            }
             try
             {
                 logicW.CreateOrUpdate(new WorkerBindingModel
                 {
                     Id = Convert.ToInt32(comboBoxFIO.SelectedValue),
                     WorkerFIO = comboBoxFIO.Text,
-                    Salary =Convert.ToInt32(textBoxSalary.Text)
+                    Salary = Convert.ToInt32(textBoxSalary.Text)
                 });
                 MessageBox.Show("Сохранение прошло успешно", "Сообщение",
                MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -121,6 +131,7 @@ namespace BankView
                     if (client - countDone > 3)
                         model.Salary = 20000;
                     textBoxSalary.Text = model.Salary.ToString();
+
                 }
                 catch (Exception ex)
                 {

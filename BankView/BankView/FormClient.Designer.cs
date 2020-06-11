@@ -38,12 +38,12 @@
             this.textBoxJob = new System.Windows.Forms.TextBox();
             this.textBoxPassportData = new System.Windows.Forms.TextBox();
             this.textBoxNumber = new System.Windows.Forms.TextBox();
-            this.buttonSave = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.textBoxCount = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.buttonSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -126,16 +126,6 @@
             this.textBoxNumber.Size = new System.Drawing.Size(543, 22);
             this.textBoxNumber.TabIndex = 9;
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Location = new System.Drawing.Point(352, 297);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(180, 37);
-            this.buttonSave.TabIndex = 10;
-            this.buttonSave.Text = "Сохранить";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
             // buttonCancel
             // 
             this.buttonCancel.Location = new System.Drawing.Point(561, 297);
@@ -178,17 +168,28 @@
             this.label7.TabIndex = 15;
             this.label7.Text = "Email";
             // 
+            // buttonSave
+            // 
+            this.buttonSave.Location = new System.Drawing.Point(343, 297);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(180, 37);
+            this.buttonSave.TabIndex = 16;
+            this.buttonSave.Text = "Сохранить";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
             // FormClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(759, 359);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxCount);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.textBoxNumber);
             this.Controls.Add(this.textBoxPassportData);
             this.Controls.Add(this.textBoxJob);
@@ -200,7 +201,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormClient";
-            this.Text = "Client";
+            this.Text = "Клиент";
             this.Load += new System.EventHandler(this.Client_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -219,11 +220,11 @@
         private System.Windows.Forms.TextBox textBoxJob;
         private System.Windows.Forms.TextBox textBoxPassportData;
         private System.Windows.Forms.TextBox textBoxNumber;
-        private System.Windows.Forms.Button buttonSave;
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.TextBox textBoxCount;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button buttonSave;
     }
 }

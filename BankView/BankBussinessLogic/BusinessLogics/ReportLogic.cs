@@ -63,22 +63,10 @@ namespace BankBussinessLogic.BusinessLogics
             }
             return list;
         }
-        public List<ClientViewModel> GetClients()
-        // public List<IGrouping<DateTime, ClientViewModel>> GetClients(ReportBindingModel model)
+         public List<IGrouping<DateTime, ClientViewModel>> GetClients(ReportBindingModel model)
         {
-                  var clients = clientLogic.Read(null);
-                  var list = new List<ClientViewModel>();
-                  foreach (var client in clients)
-                  {
-                      var record = new ClientViewModel
-                      {
-                          ClientFIO = client.ClientFIO,
-                          Score = client.Score
-                      };
-                      list.Add(record);
-                  }
-                  return list;
-           /* var cl = clientLogic.Read(new ClientBindingModel
+             
+            var cl = clientLogic.Read(new ClientBindingModel
             {
                 DateFrom = model.DateFrom,
                 DateTo = model.DateTo
@@ -86,7 +74,7 @@ namespace BankBussinessLogic.BusinessLogics
             .GroupBy(rec => rec.DateCreate.Date)
             .OrderBy(recG => recG.Key)
             .ToList();
-            return cl;*/
+            return cl;
         }
         public List<ClientViewModel> GetClients(int id)
         {

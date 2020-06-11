@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.buttonSend = new System.Windows.Forms.Button();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonSend = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,16 +52,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(509, 449);
             this.dataGridView.TabIndex = 0;
-            // 
-            // buttonSend
-            // 
-            this.buttonSend.Location = new System.Drawing.Point(536, 25);
-            this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(168, 47);
-            this.buttonSend.TabIndex = 1;
-            this.buttonSend.Text = "Отправить";
-            this.buttonSend.UseVisualStyleBackColor = true;
-            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
             // 
             // Column1
             // 
@@ -84,6 +74,16 @@
             this.Column3.Name = "Column3";
             this.Column3.Width = 125;
             // 
+            // buttonSend
+            // 
+            this.buttonSend.Location = new System.Drawing.Point(536, 25);
+            this.buttonSend.Name = "buttonSend";
+            this.buttonSend.Size = new System.Drawing.Size(168, 47);
+            this.buttonSend.TabIndex = 1;
+            this.buttonSend.Text = "Отправить";
+            this.buttonSend.UseVisualStyleBackColor = true;
+            this.buttonSend.Click += new System.EventHandler(this.buttonSend_Click);
+            // 
             // FormReportService
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -92,7 +92,7 @@
             this.Controls.Add(this.buttonSend);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormReportService";
-            this.Text = "FormReportService";
+            this.Text = "Отчет по выполненым услугам";
             this.Load += new System.EventHandler(this.FormReportService_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

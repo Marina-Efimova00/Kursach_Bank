@@ -63,7 +63,7 @@
             this.Controls.Add(this.buttonSalary);
             this.Controls.Add(this.dataGridView);
             this.Name = "FormWorker";
-            this.Text = "FormWorker";
+            this.Text = "Сотрудники";
             this.Load += new System.EventHandler(this.FormWorker_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);

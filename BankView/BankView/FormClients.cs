@@ -94,5 +94,11 @@ namespace BankView
         {
             LoadData();
         }
+
+        private void buttonLookService_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<FormService>();
+            form.ShowDialog();
+        }
     }
 }

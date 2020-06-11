@@ -82,6 +82,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(391, 163);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -89,7 +90,7 @@
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxLogin);
             this.Name = "FormAvtorizatsiya";
-            this.Text = "FormAvtorizatsiya";
+            this.Text = "Вход";
             this.ResumeLayout(false);
             this.PerformLayout();
 
