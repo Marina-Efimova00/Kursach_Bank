@@ -54,15 +54,15 @@ namespace BankView
                 }
             }
         }
-        public int CalculateSum(List<ServiceClientBindingModel> travelTours)
+        public int CalculateSum(List<ServiceClientBindingModel> clientServices)
         {
             int sum = 0;
-            foreach (var serv in travelTours)
+            foreach (var serv in clientServices)
             {
-                var tourData = serviceLogic.Read(new ServiceBindingModel { Id = serv.ServiceId }).FirstOrDefault();
-                if (tourData != null)
+                var serData = serviceLogic.Read(new ServiceBindingModel { Id = serv.ServiceId }).FirstOrDefault();
+                if (serData != null)
                 {
-                    sum += tourData.Cost;
+                    sum += serData.Cost;
                 }
             }
             return sum;
@@ -116,7 +116,11 @@ namespace BankView
             Random rnd = new Random();
             var list = new List<ServiceClientBindingModel>();
             int count = Convert.ToInt32(textBoxCount.Text);
-            var lis = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var lis = new List<int>();
+            for(int j = 0; j <10; j++)
+            {
+                lis.Add(j);
+            }
             for (int i = 0; i < count; i++)
             {
                 if (!lis.Any())

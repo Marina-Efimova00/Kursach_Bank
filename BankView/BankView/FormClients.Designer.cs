@@ -33,7 +33,6 @@
             this.buttonUpd = new System.Windows.Forms.Button();
             this.buttonDel = new System.Windows.Forms.Button();
             this.buttonRef = new System.Windows.Forms.Button();
-            this.buttonLookService = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,22 +88,11 @@
             this.buttonRef.UseVisualStyleBackColor = true;
             this.buttonRef.Click += new System.EventHandler(this.buttonRef_Click);
             // 
-            // buttonLookService
-            // 
-            this.buttonLookService.Location = new System.Drawing.Point(1304, 295);
-            this.buttonLookService.Name = "buttonLookService";
-            this.buttonLookService.Size = new System.Drawing.Size(210, 38);
-            this.buttonLookService.TabIndex = 7;
-            this.buttonLookService.Text = "Посмотреть услуги";
-            this.buttonLookService.UseVisualStyleBackColor = true;
-            this.buttonLookService.Click += new System.EventHandler(this.buttonLookService_Click);
-            // 
             // FormClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1526, 408);
-            this.Controls.Add(this.buttonLookService);
             this.Controls.Add(this.buttonRef);
             this.Controls.Add(this.buttonDel);
             this.Controls.Add(this.buttonUpd);
@@ -124,6 +112,5 @@
         private System.Windows.Forms.Button buttonUpd;
         private System.Windows.Forms.Button buttonDel;
         private System.Windows.Forms.Button buttonRef;
-        private System.Windows.Forms.Button buttonLookService;
     }
 }

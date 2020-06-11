@@ -21,7 +21,7 @@ namespace BankView
         private readonly IClientLogic clientLogic;
         public int Id { set { id = value; } }
         private int? id;
-        private Dictionary<int, (string, int)> ServiceClients;
+        private List<ServiceClientViewModel> ServiceClients;
         public FormService(IClientLogic clientLogic)
         {
             InitializeComponent();
@@ -50,10 +50,6 @@ namespace BankView
                    MessageBoxIcon.Error);
                 }
             }
-            else
-            {
-                ServiceClients = new Dictionary<int, (string, int)>();
-            }
         }
         private void LoadData()
         {
@@ -64,8 +60,7 @@ namespace BankView
                     dataGridView.Rows.Clear();
                     foreach (var bf in ServiceClients)
                     {
-                        dataGridView.Rows.Add(new object[] { bf.Key, bf.Value.Item1, bf.Value.Item2 });
-
+                        dataGridView.Rows.Add(new object[] {bf.TypeService, bf.Cost });
                     }
                 }
             }

@@ -97,10 +97,33 @@ namespace BankDatabaseImplement.Implements
                     CountService = rec.CountService,
                     Score = rec.Score,
                     DateCreate = rec.DateCreate,
+                    ServiceClients = GetServiceClientViewModel(rec)
                 })
                 .ToList();
             }
         }
-      
+        public static List<ServiceClientViewModel> GetServiceClientViewModel(Client client)
+        {
+            using (var context = new BankDatabase())
+            {
+                var ServiceClients = context.ServiceClients
+                    .Where(rec => rec.ClientId == client.Id)
+                    .Include(rec => rec.Service)
+                    .Select(rec => new ServiceClientViewModel
+                    {
+                        Id = rec.Id,
+                        ClientId = rec.ClientId,
+                        ServiceId = rec.ServiceId,
+                        Cost = rec.Cost
+                    }).ToList();
+                foreach (var serv in ServiceClients)
+                {
+                    var servData = context.Services.Where(rec => rec.Id == serv.ServiceId).FirstOrDefault();
+                    serv.TypeService = servData.TypeService;
+                    serv.Cost = servData.Cost;
+                }
+                return ServiceClients;
+            }
+        }
     }
 }

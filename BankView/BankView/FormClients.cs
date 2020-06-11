@@ -98,7 +98,9 @@ namespace BankView
         private void buttonLookService_Click(object sender, EventArgs e)
         {
             var form = Container.Resolve<FormService>();
-            form.ShowDialog();
+            form.Id = Convert.ToInt32(dataGridView.SelectedRows[0].Cells[0].Value);
+            if (form.ShowDialog() == DialogResult.OK)
+                LoadData();
         }
     }
 }

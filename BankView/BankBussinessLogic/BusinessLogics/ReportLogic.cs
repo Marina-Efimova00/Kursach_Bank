@@ -124,7 +124,7 @@ namespace BankBussinessLogic.BusinessLogics
         }
         public void SaveClientsToPdfFile(string fileName, int id, string email)
         {
-            string title = "Клиенты и их счет";
+            string title = "Счет клиента";
             SaveToPdf.CreateDoc(new PdfInfo
             {
                 FileName = fileName,
