@@ -1,4 +1,5 @@
 ﻿
+using BankBussinessLogic.BusinessLogics;
 using BankBussinessLogic.Interfaces;
 using BankBussinessLogic.ViewModel;
 using BankDatabaseImplement.Implements;
@@ -44,6 +45,8 @@ namespace BankView
             currentContainer.RegisterType<IClientLogic, ClientLogic>(new
            HierarchicalLifetimeManager());
             currentContainer.RegisterType<IServiceLogic, ServiceLogic>(new
+           HierarchicalLifetimeManager());
+            currentContainer.RegisterType<BackUpAbstractLogic, BackUpLogic>(new
            HierarchicalLifetimeManager());
             return currentContainer;
         }

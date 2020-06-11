@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
 using System.IO.Compression;
 using System.Reflection;
 using System.Runtime.Serialization.Json;
-using System.Text;
+using System.IO;
 
 namespace BankBussinessLogic.BusinessLogics
 {

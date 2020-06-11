@@ -57,18 +57,25 @@ namespace BankView
 
         private void создатьБекапToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string fileName = "C:\\Users\\marin.LAPTOP-0TUFHPTU\\Рабочий стол\\универ\\бэкап\\бекап";
-            if (Directory.Exists(fileName))
+            try
             {
-                backUpAbstractLogic.CreateArchive(fileName);
-                //return RedirectToAction("BackUp");
+                if (backUpAbstractLogic != null)
+                {
+                    var fbd = new FolderBrowserDialog();
+                    if (fbd.ShowDialog() == DialogResult.OK)
+                    {
+                        backUpAbstractLogic.CreateArchive(fbd.SelectedPath);
+                        MessageBox.Show("Бекап создан", "Сообщение",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
-            else
+            catch (Exception ex)
             {
-                DirectoryInfo di = Directory.CreateDirectory(fileName);
-                backUpAbstractLogic.CreateArchive(fileName);
-                //return RedirectToAction("BackUp");
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK,
+               MessageBoxIcon.Error);
             }
+
         }
     }
 }
