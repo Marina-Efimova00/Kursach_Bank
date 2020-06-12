@@ -62,16 +62,6 @@ namespace BankView
                MessageBoxIcon.Error);
                 return;
             }
-            var work = logicW.Read(null);
-            foreach (var w in work)
-            {
-                if (w.Salary != 0)
-                {
-                    MessageBox.Show("Зарплата уже проставлена", "Ошибка", MessageBoxButtons.OK,
-                  MessageBoxIcon.Error);
-                    return;
-                }
-            }
             try
             {
                 logicW.CreateOrUpdate(new WorkerBindingModel
