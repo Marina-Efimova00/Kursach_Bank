@@ -28,7 +28,6 @@ namespace BankView
             this.logic = logic;
             this.serviceLogic = serviceLogic;
         }
-
         private void Client_Load(object sender, EventArgs e)
         {
             if (id.HasValue)
