@@ -69,5 +69,11 @@ namespace BankView
             }
 
         }
+
+        private void графикиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var form = Container.Resolve<Grafic>();
+            form.ShowDialog();
+        }
     }
 }

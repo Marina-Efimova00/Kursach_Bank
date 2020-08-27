@@ -37,6 +37,7 @@
             this.расчтеССотрудникамиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьБекапToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
+            this.графикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             this.справочникиToolStripMenuItem,
             this.отчетыToolStripMenuItem,
             this.расчтеССотрудникамиToolStripMenuItem,
-            this.создатьБекапToolStripMenuItem});
+            this.создатьБекапToolStripMenuItem,
+            this.графикиToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(915, 28);
@@ -118,6 +120,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Вы банкрот";
             // 
+            // графикиToolStripMenuItem
+            // 
+            this.графикиToolStripMenuItem.Name = "графикиToolStripMenuItem";
+            this.графикиToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.графикиToolStripMenuItem.Text = "Графики";
+            this.графикиToolStripMenuItem.Click += new System.EventHandler(this.графикиToolStripMenuItem_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -149,5 +158,6 @@
         private System.Windows.Forms.ToolStripMenuItem отчетПоКлиентамИИхСчетуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem создатьБекапToolStripMenuItem;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ToolStripMenuItem графикиToolStripMenuItem;
     }
 }
